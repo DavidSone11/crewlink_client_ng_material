@@ -7,6 +7,7 @@ var serverFetch = function (url, subLinks, https, errorCallBackBefore, successCa
     this.errorCallBackBefore = errorCallBackBefore;
     this.successCallBackAfter = successCallBackAfter;
     this.callBackAfterError = callBackAfterError;
+    this.isWait = isWait;
 
 
         if(this.url==''){

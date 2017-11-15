@@ -23,7 +23,7 @@ app.directive('home', ['$compile', function ($compile) {
              }, 60); 
              */
 
-             var uri = "http://localhost:8080/api/v1/user";
+            var uri = "http://localhost:8080/api/v1/user";
             var servFetch = new serverFetch("", [], $http,
                 function errorCallBackBefore(response) {
                     console.log("dsaad" + response);
@@ -31,6 +31,10 @@ app.directive('home', ['$compile', function ($compile) {
                 function successCallBackAfter(response) {
                     console.log("eee" + response);
                 },
+                function callBackAfterError(response) {
+                    console.log("eee" + response);
+                },
+                true
 
             )
 
