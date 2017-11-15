@@ -7,6 +7,8 @@
 
             $httpProvider.defaults.withCredentials = true;
            ///$urlRouterProvider.otherwise('/home/dashboard');
+            ///$httpProvider.interceptors.push("httpInterceptor");
+
             $stateProvider
             .state('home', {
                 template: '<home></home>',
