@@ -1,3 +1,8 @@
+*.log
+*.sw*
+.DS_STORE
+/.idea/
+default-theme.css
 /node_modules/
 /public_development/bower_components/
 /public/bower_components/
