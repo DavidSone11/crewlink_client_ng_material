@@ -19,7 +19,8 @@
                             {
                                 name: 'EMSApp',
                                 files: [
-                                    'ng/directives/home/home.directive.js'
+                                    'ng/directives/home/home.directive.js',
+                                    'ng/utility/serverFetch.js'
                                 ]
                             })
                     }

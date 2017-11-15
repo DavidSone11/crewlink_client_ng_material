@@ -3,9 +3,6 @@ app.controller('loginController', ['$compile','$scope','$location','$state','$ht
     
 
      $scope.login = function(username,password){
-         console.log(username);
-         console.log(password);
-
          var expired = new Date();
          console.log("" + expired.getTime());
          expired.setTime(expired.getTime() + (60 * 1));

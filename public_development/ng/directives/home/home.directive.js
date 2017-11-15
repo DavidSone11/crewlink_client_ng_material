@@ -23,6 +23,8 @@ app.directive('home', ['$compile', function($compile) {
             }, 60); 
             */
 
+            console.log($cookieStore.get('user'));
+
             $timeout(function () {
                 if (!$cookieStore.get('user')) {
                     $window.location.href = '/login';
