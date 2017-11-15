@@ -23,6 +23,11 @@ app.directive('home', ['$compile', function($compile) {
             }, 60); 
             */
 
+            var serverfetch = new serverFetch("url",$http
+        
+        
+          )
+
             console.log($cookieStore.get('user'));
 
             $timeout(function () {
