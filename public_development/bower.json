@@ -18,7 +18,8 @@
   "devDependencies": {
     "angular": "^1.6.6",
     "angular-route": "^1.6.6",
-    "angular-ui-router": "^1.0.11"
+    "angular-ui-router": "^1.0.11",
+    "angular-material-data-table": "^0.10.10"
   },
   "dependencies": {
     "angular-material": "^1.1.5"
