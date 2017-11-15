@@ -1,14 +1,18 @@
 
 ' use strict';
-var serverFetch = function (url, subLinks, https, callBackBefore, callBackAfter, callBackAfterError, isWait) {
+var serverFetch = function (url, subLinks, https, errorCallBackBefore, successCallBackAfter, callBackAfterError, isWait) {
 
     this.url = url;
     this.subLinks = subLinks;
-    this.callBackBefore = callBackBefore;
-    this.callBackAfter = callBackAfter;
+    this.errorCallBackBefore = errorCallBackBefore;
+    this.successCallBackAfter = successCallBackAfter;
     this.callBackAfterError = callBackAfterError;
 
 
-        this.callBackBefore(url);
+        if(this.url==''){
+            this.errorCallBackBefore("URL IS EMPTY");
+        }
+
+        this.successCallBackAfter(url);
 
 };
