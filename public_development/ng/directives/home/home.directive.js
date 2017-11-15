@@ -22,6 +22,14 @@ app.directive('home', ['$compile', function($compile) {
 
             }, 60); 
             */
+
+            $timeout(function () {
+                if (!$cookieStore.get('user')) {
+                    $window.location.href = '/login';
+                }
+
+
+            }, 60); 
         
         }
     };
