@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('EMSApp', ['ngMaterial', 'ngMessages', 'oc.lazyLoad','ngAria','ngAnimate','ui.router', 'md.data.table','login']);
+    var app = angular.module('EMSApp', ['ngMaterial','ngCookies', 'ngMessages', 'oc.lazyLoad','ngAria','ngAnimate','ui.router', 'md.data.table','login']);
     app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
             
