@@ -35,7 +35,8 @@
                             {
                                 name: 'EMSApp',
                                 files: [
-                                    'ng/directives/dashboard/dashboard.directive.js'
+                                    'ng/directives/dashboard/dashboard.directive.js',
+                                    'ng/directives/header/header.directive.js',
                                   
                                 ]
                             })

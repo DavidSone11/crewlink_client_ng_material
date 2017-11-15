@@ -1,8 +1,8 @@
-var app = angular.module('login');
-app.directive('login', ['$compile', function($compile) {
+var app = angular.module('EMSApp');
+app.directive('header', ['$compile', function($compile) {
     return {
         restrict: 'E',
-        templateUrl: 'ng/directives/login/login.tmpl.html',
+        templateUrl: 'ng/directives/header/header.tmpl.html',
         controller: function($scope, $state, $http, $log, $q, $timeout, $window) {
 
             console.log("DDADASDA");

@@ -13,7 +13,18 @@ var serverFetch = function (url, subLinks, https, errorCallBackBefore, successCa
         if(this.url==''){
             this.errorCallBackBefore("URL IS EMPTY");
         }
+        this.processFetch = function(tableState){
 
-        this.successCallBackAfter(url);
+            console.log(tableState);
+
+        }
+        
+        this.add = function(){
+            var a= 10;
+            var b = 20;
+           
+		}.bind(this);
+        
+        this.successCallBackAfter(url);	
 
 };

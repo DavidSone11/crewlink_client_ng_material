@@ -24,7 +24,7 @@ app.directive('home', ['$compile', function ($compile) {
              */
 
             var uri = "http://localhost:8080/api/v1/user";
-            var servFetch = new serverFetch("", [], $http,
+            var servFetch = new serverFetch(uri, [], $http,
                 function errorCallBackBefore(response) {
                     console.log("dsaad" + response);
                 },
@@ -38,7 +38,7 @@ app.directive('home', ['$compile', function ($compile) {
 
             )
 
-
+            //servFetch.add();
 
             $timeout(function () {
                 if (!$cookieStore.get('user')) {
