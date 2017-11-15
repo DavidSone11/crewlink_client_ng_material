@@ -20,7 +20,9 @@
     "angular-route": "^1.6.6",
     "angular-ui-router": "^1.0.11",
     "angular-material-data-table": "^0.10.10",
-    "angular-mocks": "^1.6.6"
+    "angular-mocks": "^1.6.6",
+    "oclazyload": "ocLazyLoad#^1.1.0",
+    "angular-sanitize": "^1.6.6"
   },
   "dependencies": {
     "angular-material": "^1.1.5"
