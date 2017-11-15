@@ -5,7 +5,7 @@ app.directive('home', ['$compile', function($compile) {
         templateUrl: 'ng/directives/home/home.tmpl.html',
         controller: function($scope, $state, $http, $log, $q, $timeout, $window, $mdEditDialog, $location, $cookies, $cookieStore) {
 
-            console.log("AT HOME");
+            
 
            
 
@@ -23,12 +23,12 @@ app.directive('home', ['$compile', function($compile) {
             }, 60); 
             */
 
-            var serverfetch = new serverFetch("url",$http
-        
-        
-          )
+            var serverfetch = new serverFetch("url", [], $http
 
-            console.log($cookieStore.get('user'));
+
+            )
+
+            
 
             $timeout(function () {
                 if (!$cookieStore.get('user')) {
