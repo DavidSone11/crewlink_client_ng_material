@@ -6,7 +6,7 @@
             console.log("inside config");
 
             $httpProvider.defaults.withCredentials = true;
-           // $urlRouterProvider.otherwise('/home/dashboard');
+           ///$urlRouterProvider.otherwise('/home/dashboard');
             $stateProvider
             .state('home', {
                 template: '<home></home>',

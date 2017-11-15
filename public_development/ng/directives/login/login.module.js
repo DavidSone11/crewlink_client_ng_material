@@ -10,13 +10,15 @@
             $stateProvider.state('login',{
                 template: '<login></login>',
                 url: '/login',
+                controller:'loginController',
                 resolve: {
                     loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
                             {
                                 name: 'EMSApp',
                                 files: [
-                                    'ng/directives/login/login.directive.js'
+                                    'ng/directives/login/login.directive.js',
+                                    'ng/directives/login/login.controller.js'
                                   
                                 ]
                             })
