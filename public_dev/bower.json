@@ -1,0 +1,26 @@
+{
+  "name": "crewlink_client_ng_material",
+  "authors": [
+    "@santosh"
+  ],
+  "description": "This is simple material projct",
+  "main": "app.config.js",
+  "license": "MIT",
+  "homepage": "www.crewlink.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
+    "angular-ui-router": "^1.0.11"
+  },
+  "dependencies": {
+    "angular-material": "^1.1.5"
+  }
+}
