@@ -1,5 +1,5 @@
 
-var app = angular.module('EMSApp');
+var app = angular.module('emsApp');
 app.factory("httpInterceptor", ["$q", "$window", "$log",
     function ($q, $window, $log) {
         return {
