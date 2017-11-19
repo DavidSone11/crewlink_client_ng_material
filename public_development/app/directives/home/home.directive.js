@@ -54,7 +54,7 @@ app.directive('home', ['$compile', function ($compile) {
                     "userName": "santosh_citech",
                     "firstName": "santosh",
                     "lastName": "Sahu",
-                    "password": "12345678910",
+                    "password": "123456789101234",
                     "email": "admin@gmail.comdsdadsadaa",
                     "createdTime": "2016-04-25T06:40:49.851+0000",
                     "roleCode": "admin",
@@ -92,7 +92,109 @@ app.directive('home', ['$compile', function ($compile) {
                     "createdTime": "2016-04-25T06:40:49.851+0000",
                     "roleCode": "customer",
 
+                },
+                {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }, {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
                 }
+
 
 
 
