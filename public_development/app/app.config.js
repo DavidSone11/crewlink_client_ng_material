@@ -49,7 +49,9 @@
                                 name: 'emsApp',
                                 files: [
                                     'app/directives/home/home.directive.js',
-                                    'app/utility/serverFetch.js'
+                                    'app/utility/serverFetch.js',
+                                    'app/custom-directives/custom-tooltip.directive.js'
+                                    
                                 ]
                             })
                     }
