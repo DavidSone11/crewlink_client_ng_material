@@ -1,4 +1,4 @@
-var app = angular.module('EMSApp');
+var app = angular.module('emsApp');
 app.directive('dashboardHeader', ['$compile', function($compile) {
     return {
         restrict: 'E',

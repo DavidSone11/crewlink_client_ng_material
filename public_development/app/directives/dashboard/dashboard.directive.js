@@ -1,5 +1,5 @@
-angular.module('EMSApp')
-    .directive('dashboard', ['$compile', function ($compile) {
+var app = angular.module('emsApp');
+    app.directive('dashboard', ['$compile', function ($compile) {
         return {
             restrict: 'E',
             scope: {

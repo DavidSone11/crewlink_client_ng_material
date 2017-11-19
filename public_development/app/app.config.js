@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('EMSApp', ['ngMaterial','ngCookies', 'ngMessages', 'oc.lazyLoad','ngAria','ngAnimate','ui.router', 'md.data.table','login','smart-table']);
+    var app = angular.module('emsApp', ['ngMaterial','ngCookies', 'ngMessages', 'oc.lazyLoad','ngAria','ngAnimate','ui.router', 'md.data.table','login','smart-table']);
     app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
             
@@ -18,7 +18,7 @@
                     loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
                             {
-                                name: 'EMSApp',
+                                name: 'emsApp',
                                 files: [
                                     'app/directives/dashboard/dashboard.directive.js',
                                     'app/directives/header/header.directive.js',
@@ -34,7 +34,7 @@
                     loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
                             {
-                                name: 'EMSApp',
+                                name: 'emsApp',
                                 files: [
                                     'app/directives/home/home.directive.js',
                                     'app/utility/serverFetch.js'
