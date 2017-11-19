@@ -12,7 +12,7 @@
             word-wrap: break-word;
             font-family: verdana, arial, sans-serif;
             font-size: 11px;
-            
+
 
         }
 
@@ -25,20 +25,22 @@
 
         }
 
-        table.md-table tr.md-row:nth-child(odd)  td.md-cell{
-            background:rgb(240,240,240);
-}
-table.md-table tr.md-row:nth-child(even) td.md-cell{
-    background:rgb(255,255,255);
-}
+        table.md-table tr.md-row:nth-child(odd) td.md-cell {
+            background: rgb(240, 240, 240);
+        }
+
+        table.md-table tr.md-row:nth-child(even) td.md-cell {
+            background: rgb(255, 255, 255);
+        }
 
         table.md-table th.md-column {
             color: white;
             height: 30px!important;
             border: none;
         }
+
         table.md-table td.md-cell {
-            border:none; 
+            border: none;
         }
 
         table.md-table tbody.md-body>tr.md-row,
@@ -53,7 +55,46 @@ table.md-table tr.md-row:nth-child(even) td.md-cell{
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            /*display: block; */
         }
+
+
+
+
+        .tooltip {
+            pointer-events: none;
+            opacity: 1;
+            display: block;
+            position: absolute;
+            width: 250px;
+            height: 25px;
+            padding: 5px;
+            color: #000000;
+            border-radius: 5px;
+            text-align: center;
+            font: bold 14px "Helvetica Neue", Sans-Serif;
+            font-stretch: condensed;
+            text-decoration: none;
+            text-transform: uppercase;
+            box-shadow: 0 0 7px black;
+            background-color: #ffffff;
+            z-index: 5000;
+        }
+
+        .tooltip .arrowspan {
+            top: 8px;
+            left: -20px;
+            position: absolute;
+            border-collapse: collapse;
+            border-width: 10px;
+            border-style: solid;
+            opacity: 1;
+            
+            border-color: transparent #0e0505 transparent transparent;
+        }
+
+
+
 
         /*table.md-table:not(.md-row-select) td.md-cell:first-child, table.md-table:not(.md-row-select) :first-child*/
     </style>
@@ -79,8 +120,8 @@ table.md-table tr.md-row:nth-child(even) td.md-cell{
             </thead>
             <tbody md-body>
                 <tr md-row md-auto-select ng-repeat="(key,user) in users">
-                    <td md-cell st-ratio="10">{{key+1}}</td>
-                    <td md-cell>{{user.userName}}</td>
+                    <td md-cell>{{key+1}}</td>
+                    <td md-cell tooltip tooltipContent="user.userName">{{user.userName}}</td>
                     <td md-cell>{{user.firstName}}</td>
                     <td md-cell>{{user.lastName}}</td>
                     <td md-cell>{{user.password}}</td>
