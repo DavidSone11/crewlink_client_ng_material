@@ -8,11 +8,11 @@ app.controller('loginController', ['$compile','$scope','$location','$state','$ht
          expired.setTime(expired.getTime() + (60 * 1));
          $cookieStore.put('user', username, { expires: expired });
        
-         $location.path("/home/dashboard");
+         $location.path("/dashboard/home");
 
-         $state.go('home.dashboard', {
-            id: '123456',
-        });
+        // $state.go('dashboard.home', {
+          //  id: '123456',
+       // });
 
      }
 

@@ -10,22 +10,7 @@
             ///$httpProvider.interceptors.push("httpInterceptor");
 
             $stateProvider
-            .state('home', {
-                template: '<home></home>',
-                url: '/home',
-                resolve: {
-                    loadMyDirectives: function ($ocLazyLoad) {
-                        return $ocLazyLoad.load(
-                            {
-                                name: 'EMSApp',
-                                files: [
-                                    'ng/directives/home/home.directive.js',
-                                    'ng/utility/serverFetch.js'
-                                ]
-                            })
-                    }
-                }
-            }).state('home.dashboard',
+            .state('dashboard',
             {
                 template: '<dashboard></dashboard>',
                 url: '/dashboard',
@@ -38,6 +23,21 @@
                                     'ng/directives/dashboard/dashboard.directive.js',
                                     'ng/directives/header/header.directive.js',
                                   
+                                ]
+                            })
+                    }
+                }
+            }).state('dashboard.home', {
+                template: '<home></home>',
+                url: '/home',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'EMSApp',
+                                files: [
+                                    'ng/directives/home/home.directive.js',
+                                    'ng/utility/serverFetch.js'
                                 ]
                             })
                     }
