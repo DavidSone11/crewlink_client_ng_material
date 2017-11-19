@@ -6,9 +6,21 @@ app.directive('home', ['$compile', function ($compile) {
         controller: function ($scope, $state, $http, $log, $q, $timeout, $window, $mdEditDialog, $location, $cookies, $cookieStore) {
 
 
+            $scope.users = [];
 
+            $scope.getUser = function () {
 
+                $http.get("/json-data/data.json")
+                    .then(function (response) {
+                        $scope.users = response.data.results;
+                       
+                    },function(data){
+                        console.log("Error getting data from ");
+                    })
+                   
+            }
 
+            $scope.getUser();
 
             /* var expired = new Date();
              console.log("" + expired.getTime());
@@ -48,157 +60,7 @@ app.directive('home', ['$compile', function ($compile) {
 
             }, 60);
 
-            $scope.users = [
-                {
 
-                    "userName": "santosh_citech",
-                    "firstName": "santosh",
-                    "lastName": "Sahu",
-                    "password": "123456789101234",
-                    "email": "admin@gmail.comdsdadsadaa",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "admin",
-
-                },
-                {
-
-                    "userName": "anurag",
-                    "firstName": "Anurag",
-                    "lastName": "Sharma",
-                    "password": "1cd09mca13",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "super",
-
-                },
-                {
-
-                    "userName": "anurag",
-                    "firstName": "Anurag",
-                    "lastName": "Sharma",
-                    "password": "1cd09mca13",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "guest",
-
-                },
-                {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                },
-                {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }, {
-
-                    "userName": "santosh",
-                    "firstName": "santosh",
-                    "lastName": "sahu",
-                    "password": "123",
-                    "email": "admin@gmail.com",
-                    "createdTime": "2016-04-25T06:40:49.851+0000",
-                    "roleCode": "customer",
-
-                }
-
-
-
-
-            ]
 
         }
     };
