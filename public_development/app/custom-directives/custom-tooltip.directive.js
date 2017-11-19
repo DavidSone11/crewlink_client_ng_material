@@ -2,9 +2,9 @@ var app = angular.module('emsApp');
 app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
 
     return {
-        restrict: 'EA',
+        restrict: 'A',
         scope: {
-            content: '=tooltipContent'
+            content: '=tooltipData'
         },
         link: function (scope, element, attr) {
 
@@ -13,23 +13,24 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
 
             scope.Pos = function (top, left) {
                 tooltip.css({
-                    top: top + 'px',
+                   top: top + 'px',
                     left: left + 'px',
                 });
             };
 
+            var tooltip = angular.element(
+                '<div ng-show="isShow" class="tooltip">\
+                  <span ng-bind-html="getSafeContent(content)"></span>\
+                  <span class="arrowspan"></span>\
+              </div>'
+            );
+            angular.element(document.querySelector('body')).append(tooltip);
             scope.getSafeContent = function (content) {
                 console.log(content);
                 return $sce.trustAsHtml(content);
             };
 
-            var tooltip = angular.element(
-                '<div ng-show="isShow" class="tooltip">\
-                  <span ng-bind-html="getSafeContent(content)">dasdasda</span>\
-                  <span class="arrowspan"></span>\
-              </div>'
-            );
-            angular.element(document.querySelector('body')).append(tooltip);
+          
 
             element.on('mouseenter', function (event) {
                 scope.isShow = true;
@@ -47,7 +48,7 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
 
             /* Compile */
 
-            $compile(tooltip)(scope);
+           $compile(tooltip)(scope);
         }
     };
 

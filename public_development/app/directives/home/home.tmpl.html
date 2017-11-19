@@ -66,16 +66,12 @@
             opacity: 1;
             display: block;
             position: absolute;
-            width: 250px;
+            width: auto;
             height: 25px;
-            padding: 5px;
+            padding: 10px 5px 0px 0px;
             color: #000000;
             border-radius: 5px;
-            text-align: center;
-            font: bold 14px "Helvetica Neue", Sans-Serif;
-            font-stretch: condensed;
-            text-decoration: none;
-            text-transform: uppercase;
+            text-align: left;
             box-shadow: 0 0 7px black;
             background-color: #ffffff;
             z-index: 5000;
@@ -121,13 +117,13 @@
             <tbody md-body>
                 <tr md-row md-auto-select ng-repeat="(key,user) in users">
                     <td md-cell>{{key+1}}</td>
-                    <td md-cell tooltip tooltipContent="user.userName">{{user.userName}}</td>
-                    <td md-cell>{{user.firstName}}</td>
-                    <td md-cell>{{user.lastName}}</td>
-                    <td md-cell>{{user.password}}</td>
-                    <td md-cell>{{user.email}}</td>
-                    <td md-cell>{{user.createdTime | date:'yyyy-MM-dd'}}</td>
-                    <td md-cell>{{user.roleCode}}</td>
+                    <td md-cell tooltip tooltip-data="user.userName">{{user.userName}}</td>
+                    <td md-cell tooltip tooltip-data="user.firstName">{{user.firstName}}</td>
+                    <td md-cell tooltip tooltip-data="user.lastName">{{user.lastName}}</td>
+                    <td md-cell tooltip tooltip-data="user.password">{{user.password}}</td>
+                    <td md-cell tooltip tooltip-data="user.email">{{user.email}}</td>
+                    <td md-cell tooltip tooltip-data="user.createdTime">{{user.createdTime | date:'yyyy-MM-dd'}}</td>
+                    <td md-cell tooltip tooltip-data="user.roleCode">{{user.roleCode}}</td>
 
                 </tr>
             </tbody>
