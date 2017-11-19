@@ -20,8 +20,8 @@
                             {
                                 name: 'EMSApp',
                                 files: [
-                                    'ng/directives/dashboard/dashboard.directive.js',
-                                    'ng/directives/header/header.directive.js',
+                                    'app/directives/dashboard/dashboard.directive.js',
+                                    'app/directives/header/header.directive.js',
                                   
                                 ]
                             })
@@ -36,8 +36,8 @@
                             {
                                 name: 'EMSApp',
                                 files: [
-                                    'ng/directives/home/home.directive.js',
-                                    'ng/utility/serverFetch.js'
+                                    'app/directives/home/home.directive.js',
+                                    'app/utility/serverFetch.js'
                                 ]
                             })
                     }

@@ -5,7 +5,7 @@ angular.module('EMSApp')
             scope: {
                 dashboard: '='
             },
-            templateUrl: 'ng/directives/dashboard/dashboard.tmpl.html',
+            templateUrl: 'app/directives/dashboard/dashboard.tmpl.html',
             controller: function ($scope, $state, $http, $log, $q, $timeout, $window, $mdEditDialog, $location, $cookies, $cookieStore) {
 
 
