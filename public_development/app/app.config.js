@@ -1,10 +1,22 @@
 (function () {
     var app = angular.module('emsApp', ['ngMaterial','ngCookies', 'ngMessages', 'oc.lazyLoad','ngAria','ngAnimate','ui.router', 'md.data.table','login','smart-table']);
-    app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
-        function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
-            
+    app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider','$mdThemingProvider',
+        function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider,$mdThemingProvider) {
             
 
+            $mdThemingProvider.theme('default')
+            .primaryPalette('blue')
+            .accentPalette('orange')
+            .backgroundPalette('grey');
+      
+         
+            
+           // $mdThemingProvider.theme('default')
+           // .primaryPalette('green')
+           // .accentColor('pink');
+            //$mdThemingProvider.theme('default')
+            //.primaryPalette('green')
+           // .accentPalette('orange');
             $httpProvider.defaults.withCredentials = true;
            ///$urlRouterProvider.otherwise('/home/dashboard');
             ///$httpProvider.interceptors.push("httpInterceptor");

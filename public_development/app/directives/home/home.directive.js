@@ -48,6 +48,56 @@ app.directive('home', ['$compile', function ($compile) {
 
             }, 60);
 
+            $scope.users = [
+                {
+
+                    "userName": "santosh_citech",
+                    "firstName": "santosh",
+                    "lastName": "Sahu",
+                    "password": "12345678910",
+                    "email": "admin@gmail.comdsdadsadaa",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "admin",
+
+                },
+                {
+
+                    "userName": "anurag",
+                    "firstName": "Anurag",
+                    "lastName": "Sharma",
+                    "password": "1cd09mca13",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "super",
+
+                },
+                {
+
+                    "userName": "anurag",
+                    "firstName": "Anurag",
+                    "lastName": "Sharma",
+                    "password": "1cd09mca13",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "guest",
+
+                },
+                {
+
+                    "userName": "santosh",
+                    "firstName": "santosh",
+                    "lastName": "sahu",
+                    "password": "123",
+                    "email": "admin@gmail.com",
+                    "createdTime": "2016-04-25T06:40:49.851+0000",
+                    "roleCode": "customer",
+
+                }
+
+
+
+            ]
+
         }
     };
 }]);
