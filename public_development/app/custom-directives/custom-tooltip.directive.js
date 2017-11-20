@@ -11,7 +11,7 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
 
             scope.isShow = false;
 
-            scope.Pos = function (top, left) {
+            scope.position = function (top, left) {
                 tooltip.css({
                     top: top + 'px',
                     left: left + 'px',
@@ -37,18 +37,18 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
             angular.element(document.querySelector('body')).append(tooltip);
 
             element.on('mouseenter', function (event) {
-                if(scope.content.length>13){
+                if (scope.content.length > 13) {
                     scope.isShow = true;
                     scope.$digest();
-                }else{
+                } else {
                     scope.isShow = false;
                     scope.$digest();
                 }
-                
+
             });
 
             element.on('mousemove', function (event) {
-                scope.Pos(event.clientY - 20, event.clientX + 25);
+                scope.position(event.clientY - 20, event.clientX + 25);
             });
 
             element.on('mouseleave', function () {

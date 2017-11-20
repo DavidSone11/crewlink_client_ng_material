@@ -1,10 +1,12 @@
 <div>
-
-
-
-
-    <!-- exact table from live demo -->
     <style>
+        .md-table-container {
+            display: block;
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         table.md-table {
             width: 100%;
             border-spacing: 0;
@@ -55,7 +57,29 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            cursor: pointer;
             /*display: block; */
+        }
+
+        .md-table-pagination {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            -webkit-flex-wrap: wrap-reverse;
+            -ms-flex-wrap: wrap-reverse;
+            flex-wrap: wrap-reverse;
+            box-sizing: border-box;
+            padding: 0 24px;
+            font-size: 12px;
+            /* color: rgba(0,0,0,.54); */
+            width: 100%;
+            border-top: 1px rgba(10, 10, 10) solid;
         }
 
         .Tooltip {
@@ -106,9 +130,7 @@
         /*table.md-table:not(.md-row-select) td.md-cell:first-child, table.md-table:not(.md-row-select) :first-child*/
     </style>
 
-    <br/>
-    <br/>
-    <br/>
+
 
     <md-table-container>
         <table md-table md-progress="promise">
@@ -133,16 +155,17 @@
                     <td md-cell tooltip tooltip-data="user.lastName">{{user.lastName}}</td>
                     <td md-cell tooltip tooltip-data="user.password">{{user.password}}</td>
                     <td md-cell tooltip tooltip-data="user.email">{{user.email}}</td>
-                    <td md-cell tooltip tooltip-data="user.createdTime">{{user.createdTime | date:'yyyy-MM-dd'}}</td>
+                    <td md-cell tooltip tooltip-data="user.createdTime">{{user.createdTime}}</td>
                     <td md-cell tooltip tooltip-data="user.roleCode">{{user.roleCode}}</td>
 
                 </tr>
             </tbody>
         </table>
+        <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}"
+            md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+
     </md-table-container>
 
-    <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}"
-        md-on-paginate="getDesserts" md-page-select></md-table-pagination>
 
 
 
