@@ -6,4 +6,5 @@ module.exports = {
    // "open": true,
    // "https" : false,
    // "browser" : ["chrome", "firefox"]
+   online: true
   };
