@@ -20,17 +20,20 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
 
             var tooltip = angular.element(
                 '<div ng-show="isShow" class="tooltip">\
-                  <span ng-bind-html="getSafeContent(content)"></span>\
+                  <span ng-bind-html="getTableContent(content)"></span>\
                   <span class="arrowspan"></span>\
               </div>'
             );
-            angular.element(document.querySelector('body')).append(tooltip);
-            scope.getSafeContent = function (content) {
+            
+            scope.getTableContent = function (content) {
                 console.log(content);
-                return $sce.trustAsHtml(content);
+               
+                    return $sce.trustAsHtml(content);
+              
+                
             };
 
-          
+            angular.element(document.querySelector('body')).append(tooltip);
 
             element.on('mouseenter', function (event) {
                 scope.isShow = true;

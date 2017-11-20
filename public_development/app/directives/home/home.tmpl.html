@@ -51,43 +51,42 @@
 
         table.md-table td.md-cell {
             color: black;
-            max-width: 100px;
+            max-width: 50px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             /*display: block; */
         }
 
-
-
-
         .tooltip {
-            pointer-events: none;
+            pointer-events:none;
             opacity: 1;
             display: block;
             position: absolute;
             width: auto;
-            height: 25px;
-            padding: 10px 5px 0px 0px;
-            color: #000000;
-            border-radius: 5px;
-            text-align: left;
-            box-shadow: 0 0 7px black;
-            background-color: #ffffff;
+            height: 40px;
+            padding: 20px 5px 0px 0px;
+            color: #0e0101;
+            text-align: justify;
+            border-radius: 2px;
+            background-color: #dbf3ff;
+            box-shadow: inset 0px 0px 2px 1px rgba(21, 139, 204, 1);
+            -webkit-box-shadow: inset 0px 0px 2px 1px rgba(21, 139, 204, 1);
+            -moz-box-shadow: inset 0px 0px 2px 1px rgba(21, 139, 204, 1);
             z-index: 5000;
         }
 
         .tooltip .arrowspan {
-            top: 8px;
-            left: -20px;
+            top: 10px;
+            left: -40px;
             position: absolute;
             border-collapse: collapse;
-            border-width: 10px;
+            border-width: 20px;
             border-style: solid;
-            opacity: 1;
-            
-            border-color: transparent #0e0505 transparent transparent;
+            border-color: transparent #dbf3ff transparent transparent;
+            z-index: 20000;
         }
+
 
 
 
