@@ -58,35 +58,47 @@
             /*display: block; */
         }
 
-        .tooltip {
-            pointer-events:none;
-            opacity: 1;
-            display: block;
+        .Tooltip {
             position: absolute;
-            width: auto;
-            height: 40px;
-            padding: 20px 5px 0px 0px;
-            color: #0e0101;
-            text-align: justify;
-            border-radius: 2px;
-            background-color: #dbf3ff;
-            box-shadow: inset 0px 0px 2px 1px rgba(21, 139, 204, 1);
-            -webkit-box-shadow: inset 0px 0px 2px 1px rgba(21, 139, 204, 1);
-            -moz-box-shadow: inset 0px 0px 2px 1px rgba(21, 139, 204, 1);
             z-index: 5000;
+            width: 200px;
+            height: 20px;
+            padding: 20px;
+            color: rgba(21, 139, 204, 1);
+            text-align: justify;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            box-shadow: inset 0px 0px 5px 1px rgba(21, 139, 204, 1);
+            -webkit-box-shadow: inset 0px 0px 5px 1px rgba(21, 139, 204, 1);
+            -moz-box-shadow: inset 0px 0px 5px 1px rgba(21, 139, 204, 1);
+            background: #dbf3ff;
         }
 
-        .tooltip .arrowspan {
-            top: 10px;
-            left: -40px;
+        .Tooltip .ArrowWrap {
             position: absolute;
-            border-collapse: collapse;
-            border-width: 20px;
-            border-style: solid;
-            border-color: transparent #dbf3ff transparent transparent;
-            z-index: 20000;
+            margin-top: 40px;
+            margin-left: 81px;
+            height: 18px;
+            width: 37px;
+            overflow: hidden;
         }
 
+        .Tooltip .ArrowWrap .ArrowInner {
+            width: 25px;
+            height: 25px;
+            margin: -13px 0 0 6px;
+            transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            /* IE 9 */
+            -webkit-transform: rotate(45deg);
+            /* Chrome, Safari, Opera */
+            box-shadow: inset 0px 0px 5px 1px rgba(21, 139, 204, 1);
+            -webkit-box-shadow: inset 0px 0px 5px 1px rgba(21, 139, 204, 1);
+            -moz-box-shadow: inset 0px 0px 5px 1px rgba(21, 139, 204, 1);
+            background: #dbf3ff;
+
+        }
 
 
 

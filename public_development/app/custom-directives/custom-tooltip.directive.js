@@ -8,36 +8,43 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
         },
         link: function (scope, element, attr) {
 
-            
+
             scope.isShow = false;
 
             scope.Pos = function (top, left) {
                 tooltip.css({
-                   top: top + 'px',
+                    top: top + 'px',
                     left: left + 'px',
                 });
             };
 
             var tooltip = angular.element(
-                '<div ng-show="isShow" class="tooltip">\
-                  <span ng-bind-html="getTableContent(content)"></span>\
-                  <span class="arrowspan"></span>\
-              </div>'
+                '<div ng-show="isShow" class="Tooltip">\
+                <div class="ArrowWrap">\
+                    <div class="ArrowInner"></div>\
+                </div>\
+                <span ng-bind-html="getTableContent(content)"></span>\
+                </div>'
             );
-            
+
             scope.getTableContent = function (content) {
                 console.log(content);
-               
-                    return $sce.trustAsHtml(content);
-              
-                
+                return $sce.trustAsHtml(content);
+
+
             };
 
             angular.element(document.querySelector('body')).append(tooltip);
 
             element.on('mouseenter', function (event) {
-                scope.isShow = true;
-                scope.$digest();
+                if(scope.content.length>13){
+                    scope.isShow = true;
+                    scope.$digest();
+                }else{
+                    scope.isShow = false;
+                    scope.$digest();
+                }
+                
             });
 
             element.on('mousemove', function (event) {
@@ -51,7 +58,7 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
 
             /* Compile */
 
-           $compile(tooltip)(scope);
+            $compile(tooltip)(scope);
         }
     };
 
