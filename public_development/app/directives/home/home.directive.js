@@ -7,6 +7,10 @@ app.directive('home', ['$compile', function ($compile) {
 
 
             $scope.users = [];
+            $scope.query = {
+                limit:10,
+                page:1,
+            }
 
             $scope.getUser = function () {
 

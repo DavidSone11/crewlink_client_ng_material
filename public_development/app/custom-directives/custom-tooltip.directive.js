@@ -1,3 +1,4 @@
+' use strict';
 var app = angular.module('emsApp');
 app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
 
@@ -7,11 +8,8 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
             content: '=tooltipData'
         },
         link: function (scope, element, attr) {
-
-
             scope.isShow = false;
-
-            scope.position = function (top, left) {
+            scope.getXYPosition = function (top, left) {
                 tooltip.css({
                     top: top + 'px',
                     left: left + 'px',
@@ -28,16 +26,16 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
             );
 
             scope.getTableContent = function (content) {
-                console.log(content);
                 return $sce.trustAsHtml(content);
-
-
             };
 
             angular.element(document.querySelector('body')).append(tooltip);
 
             element.on('mouseenter', function (event) {
-                if (scope.content.length > 13) {
+                if (!scope.content || scope.content.length == 0) {
+                    return;
+                }
+                if (scope.content.length > 14) {
                     scope.isShow = true;
                     scope.$digest();
                 } else {
@@ -48,16 +46,13 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
             });
 
             element.on('mousemove', function (event) {
-                scope.position(event.clientY - 20, event.clientX + 25);
+                scope.getXYPosition(event.clientY - 20, event.clientX + 25);
             });
 
-            element.on('mouseleave', function () {
+            element.on('mouseleave', function (event) {
                 scope.isShow = false;
                 scope.$digest();
             });
-
-            /* Compile */
-
             $compile(tooltip)(scope);
         }
     };
