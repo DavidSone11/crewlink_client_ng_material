@@ -1,11 +1,13 @@
 <div>
 
     <style>
+        @import url(http://fonts.googleapis.com/css?family=Raleway);
         .table {
             margin: 0px 0px 0px 0px;
             width: 100%;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             display: table;
+            font-family: Raleway, sans-serif;
         }
 
         @media screen and (max-width: 580px) {
@@ -17,6 +19,7 @@
         .table-row {
             display: table-row;
             background: #f6f6f6;
+            
         }
 
         .table-row:nth-of-type(odd) {
@@ -25,7 +28,7 @@
 
         .table-row.header {
             font-size: 15px;
-            font-weight: 500;
+            font-weight: bold;
             color: #ffffff;
             background: #ea6153;
         }
@@ -73,18 +76,22 @@
         .cell {
             padding: 6px 12px;
             display: table-cell;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            border-top: 1px solid #ddd;
         }
 
         @media screen and (max-width: 580px) {
             .cell {
                 padding: 2px 12px;
                 display: block;
+            
             }
         }
     </style>
 
 
-    <md-content class="md-whiteframe-16dp" style="background: white;">
+    <md-content class="md-whiteframe-16dp" style="background: white;min-height: 700px;">
         <div class="row">
             <div layout="column">
                 <form id="form1">
@@ -100,7 +107,7 @@
                             <div class="cell">Email</div>
                             <div class="cell">Date</div>
                             <div class="cell">Code</div>
-                            <div class="cell">Action</div>
+
                         </div>
                         <div class="table-row search_header grey">
                             <div class="cell"></div>
@@ -159,24 +166,30 @@
                             <div class="cell">{{user.createdTime|date:full}}</div>
                             <div class="cell">{{user.roleCode}}</div>
 
-                            <div class="cell">
-
-                                <md-button class="md-raised md-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></md-button>
-                                <md-button class="md-raised md-primary">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </md-button>
-                                <md-button class="md-raised md-primary"><i class="fa fa-list" aria-hidden="true"></i></md-button>
-                            </div>
-
-
                         </div>
+
 
                     </div>
                 </form>
             </div>
         </div>
 
+        <md-content flex layout-full>
+
+            <md-button class="md-fab md-mini md-primary">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </md-button>
+            <md-button class="md-fab md-mini md-primary">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </md-button>
+            <md-button class="md-fab md-mini md-primary">
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </md-button>
+        </md-content>
+
     </md-content>
+
+
 
 
 
