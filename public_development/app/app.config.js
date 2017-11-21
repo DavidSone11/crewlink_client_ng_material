@@ -57,6 +57,23 @@
                             })
                     }
                 }
+            }).state('dashboard.blank', {
+                template: '<blank></blank>',
+                url: '/blank',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'emsApp',
+                                files: [
+                                    'app/directives/blank/blank.directive.js',
+                                    
+                                    
+                                    
+                                ]
+                            })
+                    }
+                }
             });
 
         }]);

@@ -1,0 +1,168 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+
+
+.md-table-container {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table.md-table {
+    width: 100%;
+    border-spacing: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+
+
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    background-color: yellowgreen;
+
+
+}
+
+table.md-table tr.md-row:nth-child(odd) td.md-cell {
+    background: rgb(240, 240, 240);
+}
+
+table.md-table tr.md-row:nth-child(even) td.md-cell {
+    background: rgb(255, 255, 255);
+}
+
+table.md-table th.md-column {
+    color: white;
+    height: 30px!important;
+    border: none;
+}
+
+table.md-table td.md-cell {
+    border: none;
+}
+
+table.md-table tbody.md-body>tr.md-row,
+table.md-table tfoot.md-foot>tr.md-row {
+    height: 35px;
+
+}
+
+table.md-table td.md-cell {
+    color: black;
+    max-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    /*display: block; */
+}
+
+.md-table-pagination {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
+    box-sizing: border-box;
+    padding: 0 24px;
+    font-size: 12px;
+    /* color: rgba(0,0,0,.54); */
+    width: 100%;
+    border-top: 1px rgba(10, 10, 10) solid;
+}
+
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
+display: none !important;
+}
+
+
+/* custom tooltips-02 */
+
+.custom-tooltip {
+    width: 250px;
+    height: 35px;
+    padding: 5px 0 0 0;
+    position: absolute;
+    background-color: red !important;
+    color: white !important;
+    border-radius: 5px;
+  }
+
+
+.tooltips{
+    position :absolute;
+    display: inline-block;
+    
+    
+}
+
+.tooltips .tooltipstext{
+     width: 300px;
+     height: 20px;
+     background-color:white;
+     color:rgb(15, 15, 15);
+     text-align:center;
+     z-index: 1px;
+     padding: 5px 0;
+     transition:opacity 1s; 
+     border-radius:5px; 
+     box-shadow: inset 0 0 10px rgba(51,153,0,0.8);;
+     
+}
+.tooltips:hover .tooltipstext{
+    visibility: hidden;
+    opacity: 1;
+    
+}
+
+.tooltips .arrow{
+    width: 25px;
+    height: 25px;
+    margin: -50px 0 0 6px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    box-shadow: inset 0px 0px 5px 1px rgba(51,153,0,0.8);
+    -webkit-box-shadow: inset 0px 0px 5px 1px rgba(51,153,0,0.8);
+    -moz-box-shadow: inset 0px 0px 5px 1px rgba(51,153,0,0.8);
+    background: white;
+}
+
+/*sub-header style*/
+
+#css-menu {
+    background-color: blue;
+    font-family: Raleway, sans-serif;
+    line-height: 1;
+}
+
+#css_menu ul li a{
+    margin:0;
+    padding:0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+
