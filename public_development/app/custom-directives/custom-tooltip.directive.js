@@ -9,6 +9,8 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
         },
         link: function (scope, element, attr) {
             scope.isShow = false;
+            console.log(scope);
+            console.log(element);
             scope.getXYPosition = function (top, left) {
                 tooltip.css({
                     top: top + 'px',
@@ -46,7 +48,7 @@ app.directive('tooltip', ['$compile', '$sce', function ($compile, $sce) {
             });
 
             element.on('mousemove', function (event) {
-                scope.getXYPosition(event.clientY - 20, event.clientX + 25);
+                scope.getXYPosition(event.clientY + 10, event.clientX-150);
             });
 
             element.on('mouseleave', function (event) {
