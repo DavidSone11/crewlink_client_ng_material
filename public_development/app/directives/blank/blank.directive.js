@@ -9,8 +9,17 @@ app.directive('blank', ['$compile', function($compile) {
 
             $scope.users = [];
             $scope.query = {
-                limit:10,
-                page:1,
+                order: 'userName',
+                limit: 10,
+                page: 1,
+                UserName: '',
+                firstName: '',
+                lastName: '',
+                password: '',
+                email: '',
+                date: '',
+                code: ''
+               
             }
 
                  
