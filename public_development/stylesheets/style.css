@@ -200,6 +200,10 @@ display: none !important;
     float: left;
     width: 250px;
     height: auto;
+    background-image: url("../images/fall-autumn-red-season.jpg");
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    filter: alpha(opacity=50);
 }
 
 
