@@ -7,9 +7,9 @@ app.directive('dashboardHeader', ['$compile', function($compile) {
 
             
             var originatorEv;
-            $scope.theTime = new Date().toLocaleTimeString();
+            $scope.currentTime = new Date().toLocaleTimeString();
             $interval(function () {
-                $scope.theTime = new Date().toLocaleTimeString();
+                $scope.currentTime = new Date().toLocaleTimeString();
             }, 1000);
 
             function displayTime() {
