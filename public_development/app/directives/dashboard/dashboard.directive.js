@@ -6,10 +6,11 @@ var app = angular.module('emsApp');
                 dashboard: '='
             },
             templateUrl: 'app/directives/dashboard/dashboard.tmpl.html',
-            controller: function ($scope, $state, $http, $log, $q, $timeout, $window, $mdEditDialog, $location, $cookies, $cookieStore) {
+            controller: function ($scope, $state, $http, $interval, $log, $q, $timeout, $window, $mdEditDialog, $location, $cookies, $cookieStore) {
 
 
                 
+               
 
 
             }

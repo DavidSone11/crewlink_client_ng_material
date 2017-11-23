@@ -1,7 +1,7 @@
 (function () {
     var app = angular.module('emsApp', ['ngMaterial','ngCookies', 'ngMessages', 'oc.lazyLoad','ngAria','ngAnimate','ui.router', 'md.data.table','login','smart-table']);
-    app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider','$mdThemingProvider',
-        function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider,$mdThemingProvider) {
+    app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider','$mdThemingProvider','$mdIconProvider',
+        function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider,$mdThemingProvider,$mdIconProvider) {
             
 
             $mdThemingProvider.theme('default')
@@ -9,6 +9,7 @@
             .accentPalette('orange')
             .backgroundPalette('grey');
       
+            $mdIconProvider.iconSet("account", '/icons/ic_account_box_white_48px.svg', 24)
          
             
            // $mdThemingProvider.theme('default')

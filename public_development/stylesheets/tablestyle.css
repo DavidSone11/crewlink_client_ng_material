@@ -2,11 +2,13 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 .table {
     margin: 0px 0px 0px 0px;
-    width: 100%;
+    width: 1350px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     display: table;
     font-family: 'Times New Roman', Times, serif;
     border-collapse: separate;
+    overflow:hidden;
+    display:inline-block;
     
 }
 
@@ -86,6 +88,7 @@
     display: table-cell;
     white-space: nowrap;
     text-overflow: ellipsis;
+    white-space:nowrap;
     border-bottom: 1px solid grey;
 }
 
