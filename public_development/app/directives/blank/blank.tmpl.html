@@ -1,110 +1,13 @@
 <div>
-
-    <style>
-        @import url(http://fonts.googleapis.com/css?family=Raleway);
-        .table {
-            margin: 0px 0px 0px 0px;
-            width: 100%;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-            display: table;
-            font-family: Raleway, sans-serif;
-        }
-
-        @media screen and (max-width: 580px) {
-            .table {
-                display: block;
-            }
-        }
-
-        .table-row {
-            display: table-row;
-            background: #f6f6f6;
-            
-        }
-
-        .table-row:nth-of-type(odd) {
-            background: #e9e9e9;
-        }
-
-        .table-row.header {
-            font-size: 15px;
-            font-weight: bold;
-            color: #ffffff;
-            background: #ea6153;
-        }
-
-        .table-row.green {
-            background: #27ae60;
-        }
-
-        .table-row.blue {
-            background: #2756ae;
-        }
-
-        .table-row.blue {
-            background: #2980b9;
-        }
-
-        .table-row.search_header {
-            width: 100%;
-            height: 20px;
-        }
-
-        .table-row.search_header md-input-container.md-block {
-            display: block;
-        }
-
-        .table-row.search_header md-input-container {
-            display: inline-block;
-            position: relative;
-            padding: 2px;
-            margin: 12px 0;
-            vertical-align: middle;
-        }
-
-        .table-row.grey {
-            background: #ffffff;
-        }
-        .table-row:hover {
-            background: #e9e9e9;
-            border-top: 1px solid #ddd;
-        }
-
-        @media screen and (max-width: 580px) {
-            .table-row {
-                padding: 8px 0;
-                display: block;
-            }
-        }
-
-        .cell {
-            padding: 6px 12px;
-            display: table-cell;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            border-top: 1px solid #ddd;
-        }
-
-        
-
-        @media screen and (max-width: 580px) {
-            .cell {
-                padding: 2px 12px;
-                display: block;
-            
-            }
-        }
-    </style>
-
-
     <md-content class="md-whiteframe-16dp" style="background: white;min-height: 700px;">
         <div class="row">
             <div layout="column">
                 <form id="form1">
                     <div class="table">
 
-                        <div class="table-row header blue">
+                        <div class="tableheaderRow header blue">
 
+                            <div class="cell"></div>
                             <div class="cell">SNo.</div>
                             <div class="cell">UserName</div>
                             <div class="cell">First Name</div>
@@ -115,54 +18,59 @@
                             <div class="cell">Code</div>
 
                         </div>
-                        <div class="table-row search_header grey">
+                        <div class="tableheaderRow search_header grey">
+                            <div class="cell"></div>
                             <div class="cell"></div>
                             <div class="cell">
                                 <md-input-container class="md-block">
                                     <label>UserName</label>
-                                    <input ng-model="user.firstName">
+                                    <input ng-model="user.UserName" ng-model-options="{ debounce: 1000 }">
                                 </md-input-container>
                             </div>
                             <div class="cell">
                                 <md-input-container class="md-block">
                                     <label>FirstName</label>
-                                    <input ng-model="user.firstName">
+                                    <input ng-model="user.firstName" ng-model-options="{ debounce: 1000 }">
                                 </md-input-container>
                             </div>
                             <div class="cell">
                                 <md-input-container class="md-block">
                                     <label>LastName</label>
-                                    <input ng-model="user.firstName">
+                                    <input ng-model="user.lastName" ng-model-options="{ debounce: 1000 }">
                                 </md-input-container>
                             </div>
                             <div class="cell">
                                 <md-input-container class="md-block">
                                     <label>Password</label>
-                                    <input ng-model="user.firstName">
+                                    <input ng-model="user.password" ng-model-options="{ debounce: 1000 }">
                                 </md-input-container>
                             </div>
                             <div class="cell">
                                 <md-input-container class="md-block">
                                     <label>Email</label>
-                                    <input ng-model="user.firstName">
+                                    <input ng-model="user.email" ng-model-options="{ debounce: 1000 }">
                                 </md-input-container>
                             </div>
                             <div class="cell">
                                 <md-input-container class="md-block">
                                     <label>Date</label>
-                                    <input ng-model="user.firstName">
+                                    <input ng-model="user.date" ng-model-options="{ debounce: 1000 }">
                                 </md-input-container>
                             </div>
                             <div class="cell">
                                 <md-input-container class="md-block">
                                     <label>Code</label>
-                                    <input ng-model="user.firstName">
+                                    <input ng-model="user.code" ng-model-options="{ debounce: 1000 }">
                                 </md-input-container>
                             </div>
 
                         </div>
 
                         <div class="table-row" ng-repeat="(key,user) in users">
+                            
+                            <div class="cell"> <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+                                    {{ data.cb1}}
+                                  </md-checkbox></div>
                             <div class="cell">{{$index+1}}</div>
                             <div class="cell">{{user.userName}}</div>
                             <div class="cell">{{user.firstName}}</div>

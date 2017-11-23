@@ -13,6 +13,8 @@ app.directive('blank', ['$compile', function($compile) {
                 page:1,
             }
 
+                 
+
             $scope.getUser = function () {
 
                 $http.get("/json-data/data.json")

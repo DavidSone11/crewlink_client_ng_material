@@ -1,0 +1,98 @@
+
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+.table {
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media screen and (max-width: 580px) {
+    .table {
+        display: block;
+    }
+}
+
+.table-row {
+    display: table-row;
+    background: #f6f6f6;
+    
+}
+
+.table-row:nth-of-type(odd) {
+    background: #e9e9e9;
+}
+.tableheaderRow{
+    display: table-row;
+}
+.tableheaderRow.header{
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #ea6153;
+    
+}
+
+
+.tableheaderRow.green {
+    background: #27ae60;
+}
+
+.table-row.blue {
+    background: #2756ae;
+}
+
+.table-row.yellow {
+    background: #b9a329;
+}
+
+.table-row.search_header {
+    width: 100%;
+    height: 20px;
+}
+
+.tableheaderRow.search_header md-input-container.md-block {
+    display: block;
+}
+
+.tableheaderRow.search_header md-input-container {
+    display: inline-block;
+    position: relative;
+    padding: 2px;
+    margin: 12px 0;
+    vertical-align: middle;
+}
+
+.table-row.grey {
+    background: #ffffff;
+}
+.table-row:hover {
+    background: #e9e9e9;
+    border-top: 1px solid #ddd;
+}
+
+@media screen and (max-width: 580px) {
+    .table-row {
+        padding: 8px 0;
+        display: block;
+    }
+}
+
+.cell {
+    padding: 6px 12px;
+    display: table-cell;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid grey;
+}
+
+
+
+@media screen and (max-width: 580px) {
+    .cell {
+        padding: 2px 12px;
+        display: block;
+    
+    }
+}
