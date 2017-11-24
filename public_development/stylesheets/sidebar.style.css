@@ -24,10 +24,16 @@
     }
 }
 
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    transition: all 0.3s;
+}
 
 .sidebar-nav {
     position: absolute;
-    top: 0;
+    top: 20;
     width: 250px;
     margin: 0;
     padding: 0;
