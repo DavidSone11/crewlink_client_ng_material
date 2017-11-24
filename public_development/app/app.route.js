@@ -1,4 +1,8 @@
 (function () {
+
+    var angular_injector = angular.injector(['ng']);
+    var https = angular_injector.get('$http');
+
     var app = angular.module('emsApp', ['ngMaterial', 'ngCookies', 'ngMessages', 'oc.lazyLoad', 'ngAria', 'ngAnimate', 'ui.router', 'md.data.table', 'login', 'smart-table']);
     app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider', '$mdThemingProvider', '$mdIconProvider',
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider, $mdThemingProvider, $mdIconProvider) {
@@ -19,6 +23,8 @@
             //.primaryPalette('green')
             // .accentPalette('orange');
             $httpProvider.defaults.withCredentials = true;
+            $httpProvider.defaults.useXDomain = true;
+            delete $httpProvider.defaults.headers.common['X-Requested-With'];
             ///$urlRouterProvider.otherwise('/home/dashboard');
             ///$httpProvider.interceptors.push("httpInterceptor");
 
@@ -40,6 +46,15 @@
 
                                     ]
                                 })
+                        },
+                        getCurrentUser:function(){
+                            https.get("/json-data/data.json")
+                            .then(function (response) {
+                                $scope.users = response.data.results;
+                               
+                            },function(data){
+                                console.log("Error getting data from ");
+                            })
                         }
                     }
                 }).state('dashboard.home', {
