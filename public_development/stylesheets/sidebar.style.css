@@ -3,7 +3,6 @@
     #sidebar-wrapper {
         z-index: 1000;
         position: absolute;
-        width: 250px;
         top: 0;
         bottom: 0;
         left: 0;
@@ -63,3 +62,6 @@
 
 
 
+  .toggle-hide-sidebar{
+    left: -200px;
+   }
