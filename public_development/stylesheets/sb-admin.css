@@ -1,0 +1,56 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+html,
+body,
+p,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+pre,
+form,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol,
+dl {
+  margin: 0;
+}
+img,
+fieldset {
+  border: 0;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#wrapper {
+    padding-left: 0;
+    width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+  #page-wrapper{
+    padding: 5px 5px 0px 260px;
+  }
+
+  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
+    display: none !important;
+    }
+    
+
+    
+.custom-navbar{
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 0px 0px 0px 260px;
+}
