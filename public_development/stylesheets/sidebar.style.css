@@ -1,6 +1,6 @@
 
 @media(min-width:768px) {
-    #sidebar-wrapper {
+    .sidebar-wrapper {
         z-index: 1000;
         position: absolute;
         top: 0;
@@ -23,7 +23,7 @@
     }
 }
 
-#sidebar.active {
+.sidebar.active {
     min-width: 80px;
     max-width: 80px;
     text-align: center;
@@ -40,14 +40,16 @@
   }
 
 .sidebar-nav li {
-    text-indent: 20px;
+    text-indent: 40px;
     line-height: 40px;
+    
   }
   
   .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #ffffff;
+    padding: 0px 0px 0px 0px; 
   }
   
   .sidebar-nav li a:hover {
@@ -63,5 +65,5 @@
 
 
   .toggle-hide-sidebar{
-    left: -200px;
+   left: -200px;
    }
