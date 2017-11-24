@@ -22,7 +22,7 @@ app.directive('blank', ['$compile', function($compile) {
                
             }
 
-                 
+            $scope.title =  $state.current.title;
 
             $scope.getUser = function () {
 

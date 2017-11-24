@@ -1,5 +1,6 @@
 (function () {
-
+    ' use strict';
+    console.clear();
     var angular_injector = angular.injector(['ng']);
     var https = angular_injector.get('$http');
 
@@ -33,6 +34,10 @@
                 {
                     template: '<dashboard></dashboard>',
                     url: '/dashboard',
+                    data: {
+                        pageTitle: 'dashboard'
+                    },
+                    title: 'DASHBOARD',
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
@@ -42,24 +47,29 @@
                                         'app/directives/dashboard/dashboard.directive.js',
                                         'app/directives/header/header.directive.js',
                                         'app/directives/left-sidebar/left-sidebar.directive.js',
-                                        'app/directives/sub-header/sub-header.directive.js'
+                                        'app/directives/sub-header/sub-header.directive.js',
+                                        ////  'app/custom-directives/custom-header-title.directive.js'
 
                                     ]
                                 })
                         },
-                        getCurrentUser:function(){
+                        getCurrentUser: function () {
                             https.get("/json-data/data.json")
-                            .then(function (response) {
-                                var users = response.data.results;
-                               
-                            },function(data){
-                                console.log("Error getting data from ");
-                            })
+                                .then(function (response) {
+                                    var users = response.data.results;
+
+                                }, function (data) {
+                                    console.log("Error getting data from ");
+                                })
                         }
                     }
                 }).state('dashboard.home', {
                     template: '<home></home>',
                     url: '/home',
+                    data: {
+                        pageTitle: 'dashboard/home'
+                    },
+                    title: 'DASHBOARD/HOME',
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
@@ -67,7 +77,7 @@
                                     name: 'emsApp',
                                     files: [
                                         'app/directives/home/home.directive.js'
-                                        
+
 
                                     ]
                                 })
@@ -76,6 +86,10 @@
                 }).state('dashboard.blank', {
                     template: '<blank></blank>',
                     url: '/blank',
+                    data: {
+                        pageTitle: 'dashboard/blank'
+                    },
+                    title: 'DASHBOARD/BLANK',
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
@@ -93,6 +107,10 @@
                 }).state('dashboard.plan', {
                     template: '<user-plan></user-plan>',
                     url: '/plan',
+                    data: {
+                        pageTitle: 'dashboard/UserPlan'
+                    },
+                    title: 'DASHBOARD/PLAN',
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load({
@@ -109,9 +127,44 @@
                 });
 
         }]);
-        ///angular.bootstrap(document, ['emsApp']);  /// Manually bootstrapping of ng-app
-       // angular.bootstrap(document, ['login']);  /// Manually bootstrapping of ng-app
-        
+
+        app.run(['$rootScope', '$state', '$stateParams',
+        function ($rootScope,   $state,   $stateParams) {
+    
+            // It's very handy to add references to $state and $stateParams to the $rootScope
+            // so that you can access them from any scope within your applications.For example,
+            // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+            // to active whenever 'contacts.list' or one of its decendents is active.
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+        }])
+    ///angular.bootstrap(document, ['emsApp']);  /// Manually bootstrapping of ng-app
+    // angular.bootstrap(document, ['login']);  /// Manually bootstrapping of ng-app
+
+    app.directive('updateTitle', ['$rootScope', '$timeout','$compile', function ($rootScope,$timeout,$compile) {
+
+        return {
+            link: function (scope, element) {
+                
+                var listener = function (event, toState) {
+                    var title = 'Default Title';
+                    if (toState.data && toState.data.pageTitle) 
+                       title = toState.data.pageTitle;
+
+                    $timeout(function () {
+                        element.text(title);
+                    }, 0, false);
+                };
+
+                $rootScope.$on('$stateChangeSuccess', listener);
+
+
+            }
+
+        }
+
+
+    }]);
 
 })();
 
