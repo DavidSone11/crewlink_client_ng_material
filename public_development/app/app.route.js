@@ -35,7 +35,7 @@
                                 files: [
                                     'app/directives/dashboard/dashboard.directive.js',
                                     'app/directives/header/header.directive.js',
-                                    'app/directives/sidebar/sidebar.directive.js',
+                                    'app/directives/left-sidebar/left-sidebar.directive.js',
                                     'app/directives/sub-header/sub-header.directive.js'
                                   
                                 ]
