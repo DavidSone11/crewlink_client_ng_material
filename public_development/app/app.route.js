@@ -51,9 +51,8 @@
                                 {
                                     name: 'emsApp',
                                     files: [
-                                        'app/directives/home/home.directive.js',
-                                        'app/utility/serverFetch.js',
-                                        'app/custom-directives/custom-tooltip.directive.js'
+                                        'app/directives/home/home.directive.js'
+                                        
 
                                     ]
                                 })
@@ -76,15 +75,17 @@
                                 })
                         }
                     }
-                }).state('dashboard.table', {
-                    template: '<table></table>',
-                    url: '/table',
+                }).state('dashboard.plan', {
+                    template: '<user-plan></user-plan>',
+                    url: '/plan',
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load({
                                 name: 'emsApp',
                                 files: [
                                     'app/directives/table/table.directive.js',
+                                    'app/utility/serverFetch.js',
+                                    'app/custom-directives/custom-tooltip.directive.js'
 
                                 ]
                             })

@@ -1,9 +1,9 @@
 var app = angular.module('emsApp');
-app.directive('table', ['$compile', function($compile) {
+app.directive('userPlan', ['$compile', function($compile) {
     return {
         restrict: 'E',
         templateUrl: 'app/directives/table/table.tmpl.html',
-        controller: function($scope, $state, $http, $log, $q, $timeout, $window,$interval,$mdDialog) {
+        controller: function($scope, $state, $http, $log, $q, $timeout, $window,$interval,$mdDialog,$mdEditDialog,$cookies, $cookieStore) {
 
 
             $scope.users = [];
