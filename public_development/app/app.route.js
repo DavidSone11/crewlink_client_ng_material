@@ -50,7 +50,7 @@
                         getCurrentUser:function(){
                             https.get("/json-data/data.json")
                             .then(function (response) {
-                                $scope.users = response.data.results;
+                                var users = response.data.results;
                                
                             },function(data){
                                 console.log("Error getting data from ");
@@ -109,6 +109,9 @@
                 });
 
         }]);
+        ///angular.bootstrap(document, ['emsApp']);  /// Manually bootstrapping of ng-app
+       // angular.bootstrap(document, ['login']);  /// Manually bootstrapping of ng-app
+        
 
 })();
 
