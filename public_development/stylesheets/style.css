@@ -33,10 +33,15 @@ body{
 
 #wrapper {
     padding-left: 0;
+    width: 100%;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+  }
+
+  #page-wrapper{
+    padding: 5px 5px 0px 260px;
   }
 
 .md-table-container {
@@ -202,7 +207,7 @@ display: none !important;
 
 
 .custom-navbar{
-    padding: 15px 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 0px 0px 0px 260px;
 }
 
