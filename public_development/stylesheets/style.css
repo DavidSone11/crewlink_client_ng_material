@@ -27,7 +27,17 @@ fieldset {
   border: 0;
 }
 
+body{
+    overflow-x: hidden;
+}
 
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
 
 .md-table-container {
     display: block;
@@ -190,4 +200,9 @@ display: none !important;
     box-sizing: border-box;
 }
 
+
+.custom-navbar{
+    padding: 15px 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
 

@@ -9,6 +9,7 @@
     border-collapse: separate;
     overflow:hidden;
     display:inline-block;
+    transition: all 0.3s;
     
 }
 
