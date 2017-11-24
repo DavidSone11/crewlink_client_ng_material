@@ -7,6 +7,13 @@ app.directive('sidebar', ['$compile', function($compile) {
 
             console.log("blank");
 
+
+            $scope.toggleSideBar = function () {
+
+                console.log("DASDAS");
+
+            }
+
           
 
         
