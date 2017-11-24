@@ -63,7 +63,7 @@
                                 })
                         },
                         onEnter: function($window){
-                            $window.document.title = "DASHBOARD"; 
+                            $window.document.title = "EMPLOYEE MANAGEMENT SYSTEM: A MIT PROJECT- DASHBOARD"; 
                         }
                     }
                 }).state('dashboard.home', {
@@ -86,7 +86,7 @@
                                 })
                         },
                         onEnter: function($window){
-                            $window.document.title = "DASHBOARD/HOME"; 
+                            $window.document.title = "EMPLOYEE MANAGEMENT SYSTEM: A MIT PROJECT- DASHBOARD/HOME"; 
                         }
                     }
                 }).state('dashboard.blank', {
@@ -110,7 +110,7 @@
                                 })
                         },
                         onEnter: function($window){
-                            $window.document.title = "DASHBOARD/BLANK"; 
+                            $window.document.title = "EMPLOYEE MANAGEMENT SYSTEM: A MIT PROJECT- DASHBOARD/BLANK"; 
                         }
                     }
                 }).state('dashboard.plan', {
@@ -133,7 +133,7 @@
                             })
                         },
                         onEnter: function($window){
-                            $window.document.title = "DASHBOARD/PLAN"; 
+                            $window.document.title = "EMPLOYEE MANAGEMENT SYSTEM: A MIT PROJECT- DASHBOARD/PLAN"; 
                         }
                     }
                 });
