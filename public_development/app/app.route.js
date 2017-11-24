@@ -61,6 +61,9 @@
                                 }, function (data) {
                                     console.log("Error getting data from ");
                                 })
+                        },
+                        onEnter: function($window){
+                            $window.document.title = "DASHBOARD"; 
                         }
                     }
                 }).state('dashboard.home', {
@@ -81,6 +84,9 @@
 
                                     ]
                                 })
+                        },
+                        onEnter: function($window){
+                            $window.document.title = "DASHBOARD/HOME"; 
                         }
                     }
                 }).state('dashboard.blank', {
@@ -102,6 +108,9 @@
 
                                     ]
                                 })
+                        },
+                        onEnter: function($window){
+                            $window.document.title = "DASHBOARD/BLANK"; 
                         }
                     }
                 }).state('dashboard.plan', {
@@ -122,6 +131,9 @@
 
                                 ]
                             })
+                        },
+                        onEnter: function($window){
+                            $window.document.title = "DASHBOARD/PLAN"; 
                         }
                     }
                 });
