@@ -23,7 +23,7 @@ app.directive('sidebar', ['$compile', function($compile) {
                     angular.element(document.querySelector('[id="sidebar-wrap"]')).removeClass('toggle-hide-sidebar');
                  }
 
-                console.log("DASDAS");
+              
 
             }
 
