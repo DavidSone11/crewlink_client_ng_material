@@ -94,3 +94,7 @@ body{
     margin: 0px 0px 0px 241px;
     padding: 0px 227px 0px 0px;
 }
+.no-margin-custom-navbar {
+  margin:0;
+  padding:0;
+}
