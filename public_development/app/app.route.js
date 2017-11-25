@@ -5,6 +5,53 @@
     var https = angular_injector.get('$http');
 
     var app = angular.module('emsApp', ['ngMaterial', 'ngCookies', 'ngMessages', 'oc.lazyLoad', 'ngAria', 'ngAnimate', 'ui.router', 'md.data.table', 'login', 'smart-table']);
+    //function httpInterceptor($q){
+      //  console.log("DASDA");
+      //  return{
+
+        //}
+    //}
+    
+
+    //httpInterceptor.$inject = ['$scope','$q'];
+    //app.directive("httpInterceptor",httpInterceptor);
+
+    app.factory('UtimfHttpIntercepter', UtimfHttpIntercepter)
+    
+        UtimfHttpIntercepter.$inject = ['$q'];
+        function UtimfHttpIntercepter($q) {
+        var authFactory = {};
+    
+        var _request = function (config) {
+            config.headers = config.headers || {}; // change/add hearders
+            config.data = config.data || {}; // change/add post data
+            config.params = config.params || {}; //change/add querystring params            
+    
+            return config || $q.when(config);
+        }
+    
+        var _requestError = function (rejection) {
+            // handle if there is a request error
+            return $q.reject(rejection);
+        }
+    
+        var _response = function(response){
+            // handle your response
+            return response || $q.when(response);
+        }
+    
+        var _responseError = function (rejection) {
+            // handle if there is a request error
+            return $q.reject(rejection);
+        }
+    
+        authFactory.request = _request;
+        authFactory.requestError = _requestError;
+        authFactory.response = _response;
+        authFactory.responseError = _responseError;
+        return authFactory;
+    }
+    
     app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider', '$mdThemingProvider', '$mdIconProvider',
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider, $mdThemingProvider, $mdIconProvider) {
 
@@ -23,11 +70,12 @@
             //$mdThemingProvider.theme('default')
             //.primaryPalette('green')
             // .accentPalette('orange');
-            $httpProvider.defaults.withCredentials = true;
-            $httpProvider.defaults.useXDomain = true;
-            delete $httpProvider.defaults.headers.common['X-Requested-With'];
+            //$httpProvider.defaults.withCredentials = true;
+            //$httpProvider.defaults.useXDomain = true;
+            //delete $httpProvider.defaults.headers.common['X-Requested-With'];
             ///$urlRouterProvider.otherwise('/home/dashboard');
-            ///$httpProvider.interceptors.push("httpInterceptor");
+            $httpProvider.interceptors.push("UtimfHttpIntercepter");
+            
 
             $stateProvider
                 .state('dashboard',
@@ -138,7 +186,10 @@
                     }
                 });
 
+                
+
         }]);
+        
 
         app.run(['$rootScope', '$state', '$stateParams',
         function ($rootScope,   $state,   $stateParams) {
