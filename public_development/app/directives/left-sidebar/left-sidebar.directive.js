@@ -12,15 +12,17 @@ app.directive('sidebar', ['$compile', function($compile) {
 
                 $scope.isToggleVisible = $scope.isToggleVisible ? false : true;
                  if( $scope.isToggleVisible){
-                    angular.element(document.querySelector('[id="page-wrapper"]')).addClass('page-wrapper-no-margin page-wrapper-no-margin-animate-hide');
+                    var page_wrapper =  angular.element(document.querySelector('[id="page-wrapper"]')).removeClass("page-wrapper").addClass('page-wrapper-no-margin animate-hide');
                     angular.element(document.querySelector("#md-toggle-button #toggle-button-font-awesome")).removeClass('fa fa-bars fa-2x');
                     angular.element(document.querySelector("#md-toggle-button #toggle-button-font-awesome")).addClass('fa fa-times fa-2x');
                     //var side_hide = angular.element(document.querySelector('[id="sidebar-wrapper"]'));
                     ///side_hide.remove();
+                    var hideId = angular.element(document.querySelector('[id="headerId"]')).removeClass('custom-navbar').addClass("no-margin-custom-navbar");
                     angular.element(document.querySelector('[id="sidebar-wrap"]')).addClass('toggle-hide-sidebar');
                  }else{
                     angular.element(document.querySelector("#md-toggle-button #toggle-button-font-awesome")).addClass('fa fa-bars fa-2x');
                     angular.element(document.querySelector('[id="sidebar-wrap"]')).removeClass('toggle-hide-sidebar');
+                    var hideId = angular.element(document.querySelector('[id="headerId"]')).removeClass('no-margin-custom-navbar').addClass("custom-navbar");
                  }
 
               
