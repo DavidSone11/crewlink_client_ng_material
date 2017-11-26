@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                 src: 'public_dev/stylesheets/**/*.css',
                 dest: 'public/stylesheets/build.css'
             }
-        }       
+        }
     });
 
     grunt.registerTask("speaking", function () {
@@ -34,14 +34,12 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask("clean:output",function(){
+    grunt.registerTask("clean:output", function () {
         clean: {
             build: {
-                src: [output+'javascripts/**/*.js', output+'stylesheets/**/*.css', output+'images/**/*.+(png|jpg|jpeg|gif)']
+                src: [output + 'javascripts/**/*.js', output + 'stylesheets/**/*.css', output + 'images/**/*.+(png|jpg|jpeg|gif)']
             }
         }
-
-        
     });
 
     grunt.registerTask("default", ['speaking', 'yelling', 'concat']);

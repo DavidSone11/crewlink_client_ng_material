@@ -4,7 +4,7 @@
     var angular_injector = angular.injector(['ng']);
     var https = angular_injector.get('$http');
 
-    var app = angular.module('emsApp', ['ngMaterial', 'ngCookies', 'ngMessages', 'oc.lazyLoad', 'ngAria', 'ngAnimate', 'ui.router', 'md.data.table', 'login', 'smart-table','ngMaterialDatePicker']);
+    var app = angular.module('emsApp', ['ngMaterial', 'ngCookies', 'ngMessages', 'oc.lazyLoad', 'ngAria', 'ngAnimate', 'ui.router', 'md.data.table', 'login', 'smart-table']);
     //function httpInterceptor($q){
       //  console.log("DASDA");
       //  return{
@@ -184,7 +184,31 @@
                             $window.document.title = "EMPLOYEE MANAGEMENT SYSTEM: A MIT PROJECT- DASHBOARD/PLAN"; 
                         }
                     }
-                });
+                }).state('dashboard.userPlan', {
+                    templateUrl: 'app/directives/UserPlan/userplan.directive.html',
+                    url: '/userplan',
+                    data: {
+                        pageTitle: 'DASHBOARD/USERPLAN'
+                    },
+                    title: 'DASHBOARD/USERPLAN',
+                    resolve: {
+                        loadMyDirectives: function ($ocLazyLoad) {
+                            return $ocLazyLoad.load(
+                                {
+                                    name: 'emsApp',
+                                    files: [
+                                        'app/directives/Userplan/userplan.directive.js',
+
+
+
+                                    ]
+                                })
+                        },
+                        onEnter: function($window){
+                            $window.document.title = "EMPLOYEE MANAGEMENT SYSTEM: A MIT PROJECT- DASHBOARD/BLANK"; 
+                        }
+                    }
+                })
 
                 
 
