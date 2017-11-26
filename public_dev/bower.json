@@ -1,0 +1,37 @@
+{
+  "name": "crewlink_client_ng_material",
+  "authors": [
+    "@santosh"
+  ],
+  "description": "This is simple material projct",
+  "main": "app.config.js",
+  "license": "MIT",
+  "homepage": "www.crewlink.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
+    "angular-ui-router": "^1.0.11",
+    "angular-material-data-table": "^0.10.10",
+    "angular-mocks": "^1.6.6",
+    "oclazyload": "ocLazyLoad#^1.1.0",
+    "angular-sanitize": "^1.6.6",
+    "angular-cookies": "^1.6.6",
+    "angular-smart-table": "^2.1.9",
+    "angular-material": "master",
+    "components-font-awesome": "^4.7.0",
+    "metisMenu": "metismenu#^2.7.1",
+    "ng-material-datetimepicker": "^1.9.6"
+  },
+  "dependencies": {},
+  "resolutions": {
+    "angular-material": "master"
+  }
+}
