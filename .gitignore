@@ -4,5 +4,6 @@
 /.idea/
 default-theme.css
 /node_modules/
-/public_development/bower_components/
+/public_dev/bower_components/
 /public/bower_components/
+/public_dev/
