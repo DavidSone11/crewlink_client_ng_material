@@ -20,7 +20,7 @@ app.controller('loginController', ['$compile', '$scope', '$location', '$state', 
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }).then(function successCallback(response) {
         alert(response.data['msg']);
-        location.href = '#dashboard';
+        $location.path == '/dashboard';
       }, function errorCallback(response) {
         alert(response.data['msg']);
       });
