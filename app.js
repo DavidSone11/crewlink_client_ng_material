@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var db = require('./database/db');
 var consign = require('consign');
+var session = require('express-session');
 
 var app = express();
 require('./config/enviroment.config.js')(app, express, path);
@@ -33,6 +34,7 @@ var server = app.listen(port, function () {
   console.log('Express server listening on port ' + port);
 });
 
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade'); //extension of views
