@@ -34,11 +34,11 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask("clean:output", function () {
+    grunt.registerTask("clean:output", function (e) {
         clean: {
-            build: {
-                src: [output + 'javascripts/**/*.js', output + 'stylesheets/**/*.css', output + 'images/**/*.+(png|jpg|jpeg|gif)']
-            }
+            js: [output + "javascripts/*.js"]
+            css: [output + "stylesheets/*.css"]
+
         }
     });
 

@@ -4,7 +4,7 @@
     var angular_injector = angular.injector(['ng']);
     var https = angular_injector.get('$http');
 
-    var app = angular.module('emsApp', ['ngMaterial', 'ngCookies', 'ngMessages', 'oc.lazyLoad', 'ngAria', 'ngAnimate', 'ui.router', 'md.data.table', 'login', 'smart-table']);
+    var app = angular.module('emsApp', ['ngMaterial', 'ngCookies', 'ngMessages', 'oc.lazyLoad', 'ngAria', 'ngAnimate', 'ui.router', 'md.data.table', 'login', 'smart-table','ngMaterialDatePicker']);
     //function httpInterceptor($q){
       //  console.log("DASDA");
       //  return{
@@ -185,7 +185,7 @@
                         }
                     }
                 }).state('dashboard.userPlan', {
-                    templateUrl: 'app/directives/UserPlan/userplan.directive.html',
+                    templateUrl: 'app/directives/UserPlan/userplan.tmpl.html',
                     url: '/userplan',
                     data: {
                         pageTitle: 'DASHBOARD/USERPLAN'
@@ -198,9 +198,6 @@
                                     name: 'emsApp',
                                     files: [
                                         'app/directives/Userplan/userplan.directive.js',
-
-
-
                                     ]
                                 })
                         },
@@ -208,7 +205,7 @@
                             $window.document.title = "EMPLOYEE MANAGEMENT SYSTEM: A MIT PROJECT- DASHBOARD/BLANK"; 
                         }
                     }
-                })
+                });
 
                 
 
