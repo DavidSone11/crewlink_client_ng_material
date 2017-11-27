@@ -222,7 +222,7 @@
                     controller: 'userPlanController',
                     access: {
                         requiredLogin: true
-                      },
+                    },
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
@@ -246,8 +246,8 @@
         }]);
 
 
-    app.run(['$rootScope', '$state', '$stateParams',
-        function ($rootScope, $state, $stateParams) { 
+    app.run(['$rootScope', '$state', '$stateParams', '$window', '$location', 'AuthenticationFactory',
+        function ($rootScope, $state, $stateParams) {
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
         }])

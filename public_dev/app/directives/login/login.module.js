@@ -3,11 +3,14 @@
     app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
             $httpProvider.defaults.withCredentials = true;
-            $urlRouterProvider.otherwise('/login');
+            $urlRouterProvider.otherwise({ redirectTo: '/login' });
             $stateProvider.state('login', {
                 template: '<login></login>',
                 url: '/login',
                 controller: 'loginController',
+                access: {
+                    requiredLogin: false
+                },
                 resolve: {
                     loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
