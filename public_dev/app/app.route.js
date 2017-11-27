@@ -162,19 +162,19 @@
                             $window.document.title = "EMPLOYEE MANAGEMENT SYSTEM: A MIT PROJECT- DASHBOARD/BLANK"; 
                         }
                     }
-                }).state('dashboard.plan', {
-                    template: '<user-plan></user-plan>',
-                    url: '/plan',
+                }).state('dashboard.user', {
+                    template: '<user></user>',
+                    url: '/user',
                     data: {
-                        pageTitle: 'dashboard/UserPlan'
+                        pageTitle: 'dashboard/user'
                     },
-                    title: 'DASHBOARD/PLAN',
+                    title: 'DASHBOARD/USER',
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load({
                                 name: 'emsApp',
                                 files: [
-                                    'app/directives/table/table.directive.js',
+                                    'app/directives/user/user.directive.js',
                                     'app/utility/serverFetch.js',
                                     'app/custom-directives/custom-tooltip.directive.js'
 
