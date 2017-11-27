@@ -97,6 +97,7 @@
                                         'app/directives/left-sidebar/left-sidebar.directive.js',
                                         'app/directives/sub-header/sub-header.directive.js',
                                         ////  'app/custom-directives/custom-header-title.directive.js'
+                                        'app/custom-directives/custom-data-table.directive.js'
 
                                     ]
                                 })
@@ -198,6 +199,8 @@
                                     name: 'emsApp',
                                     files: [
                                         'app/directives/Userplan/userplan.directive.js',
+                                        'app/directives/UserPlan/userplan.controller.js'
+                                        
                                     ]
                                 })
                         },
