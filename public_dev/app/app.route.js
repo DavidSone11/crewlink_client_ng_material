@@ -15,7 +15,7 @@
         'ui.router',
         'md.data.table',
         'login',
-        'smart-table', 
+        'smart-table',
         'ngMaterialDatePicker',
         'angular-growl'
     ]);
@@ -66,10 +66,10 @@
         return authFactory;
     }
 
-    app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider', '$mdThemingProvider', '$mdIconProvider','cfpLoadingBarProvider',
-        function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider, $mdThemingProvider, $mdIconProvider,cfpLoadingBarProvider) {
-            cfpLoadingBarProvider.latencyThreshold = 5, 
-            cfpLoadingBarProvider.includeSpinner = !1
+    app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider', '$mdThemingProvider', '$mdIconProvider', 'cfpLoadingBarProvider',
+        function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider, $mdThemingProvider, $mdIconProvider, cfpLoadingBarProvider) {
+            cfpLoadingBarProvider.latencyThreshold = 5,
+                cfpLoadingBarProvider.includeSpinner = !1
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue')
                 .accentPalette('orange')
@@ -100,6 +100,9 @@
                         pageTitle: 'dashboard'
                     },
                     title: 'DASHBOARD',
+                    access: {
+                        requiredLogin: true
+                    },
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
@@ -136,6 +139,9 @@
                         pageTitle: 'dashboard/home'
                     },
                     title: 'DASHBOARD/HOME',
+                    access: {
+                        requiredLogin: true
+                    },
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
@@ -159,6 +165,9 @@
                         pageTitle: 'dashboard/blank'
                     },
                     title: 'DASHBOARD/BLANK',
+                    access: {
+                        requiredLogin: true
+                    },
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
@@ -183,6 +192,10 @@
                         pageTitle: 'dashboard/user'
                     },
                     title: 'DASHBOARD/USER',
+                    access: {
+                        requiredLogin: true
+                    },
+
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load({
@@ -207,6 +220,9 @@
                     },
                     title: 'DASHBOARD/USERPLAN',
                     controller: 'userPlanController',
+                    access: {
+                        requiredLogin: true
+                      },
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
@@ -231,17 +247,10 @@
 
 
     app.run(['$rootScope', '$state', '$stateParams',
-        function ($rootScope, $state, $stateParams) {
-
-            // It's very handy to add references to $state and $stateParams to the $rootScope
-            // so that you can access them from any scope within your applications.For example,
-            // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
-            // to active whenever 'contacts.list' or one of its decendents is active.
+        function ($rootScope, $state, $stateParams) { 
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
         }])
-    ///angular.bootstrap(document, ['emsApp']);  /// Manually bootstrapping of ng-app
-    // angular.bootstrap(document, ['login']);  /// Manually bootstrapping of ng-app
 
     app.directive('updateTitle', ['$rootScope', '$timeout', '$compile', function ($rootScope, $timeout, $compile) {
 
