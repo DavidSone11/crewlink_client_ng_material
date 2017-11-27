@@ -28,7 +28,10 @@
     "angular-material": "master",
     "components-font-awesome": "^4.7.0",
     "metisMenu": "metismenu#^2.7.1",
-    "ng-material-datetimepicker": "^1.9.6"
+    "ng-material-datetimepicker": "^1.9.6",
+    "angular-translate": "^2.16.0",
+    "angular-loading-bar": "^0.9.0",
+    "angular-growl-v2": "^0.7.9"
   },
   "dependencies": {},
   "resolutions": {
