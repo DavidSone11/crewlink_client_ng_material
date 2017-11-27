@@ -192,6 +192,7 @@
                         pageTitle: 'DASHBOARD/USERPLAN'
                     },
                     title: 'DASHBOARD/USERPLAN',
+                    controller:'userPlanController',
                     resolve: {
                         loadMyDirectives: function ($ocLazyLoad) {
                             return $ocLazyLoad.load(
