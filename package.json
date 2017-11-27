@@ -15,6 +15,7 @@
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
+    "consign": "^0.1.6",
     "grunt": "^1.0.1",
     "grunt-clean-alt": "^0.1.0",
     "grunt-contrib-clean": "^1.1.0",
@@ -23,6 +24,7 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-nodeunit": "^1.0.0",
     "grunt-contrib-uglify": "^3.2.1",
+    "jwt-simple": "^0.5.1",
     "lite-server": "^2.3.0",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.5",

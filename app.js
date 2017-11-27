@@ -1,27 +1,30 @@
 var express = require('express');
 var path = require('path');
+var router = express.Router();
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-
 var db = require('./database/db');
 
-var app = express();
+var consign = require('consign');
 
+var app = express();
+///require('./config/enviroment.config.js')(app, express);
+
+
+///consign({ cwd: 'routes' }).include('api').into(router);
 var port = normalizePort(process.env.PORT || '4000');
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
     return val;
   }
 
   if (port >= 0) {
-    // port number
     return port;
   }
 
@@ -32,18 +35,32 @@ var server = app.listen(port, function () {
   console.log('Express server listening on port ' + port);
 });
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade'); //extension of views
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public_dev')));
+
+app.use(express.static(path.join(__dirname, '../public_dev')));
+
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token,X-Key');
+  if (req.method == 'OPTIONS') {
+    res.status(200).end();
+  } else {
+    next();
+  }
+});
 
 app.use('/', index);
+app.all('/api/v1/*', [require('./middlewares/validateRequest')]);
+
+
 
 
 // catch 404 and forward to error handler
