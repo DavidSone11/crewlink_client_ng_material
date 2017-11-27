@@ -4,5 +4,5 @@ var router = express.Router();
 var auth = require('./auth.js');
 
 
-router.get(['/auth', '/api/v1/login', '/login'], auth.login);
+router.post(['/auth', '/api/v1/auth', '/login'], auth.login);
 module.exports = router;

@@ -1,45 +1,65 @@
 var app = angular.module('login');
-app.controller('loginController', ['$compile', '$scope', '$location', '$state', '$http', '$log', '$q', '$timeout', '$window', '$mdEditDialog', '$cookies', '$cookieStore', function ($compile, $scope, $location, $state, $http, $log, $q, $timeout, $window, $mdEditDialog, $cookies, $cookieStore) {
+app.controller('loginController',
+  ['$compile',
+    '$scope',
+    '$location',
+    '$state',
+    '$http',
+    '$log',
+    '$q',
+    '$timeout',
+    '$window',
+    '$mdEditDialog',
+    '$cookies',
+    '$cookieStore',
+    'UserAuthFactory',
+    'AuthenticationFactory', function ($compile, $scope, $location, $state, $http, $log, $q, $timeout, $window, $mdEditDialog, $cookies, $cookieStore, UserAuthFactory, AuthenticationFactory) {
 
 
-  $scope.login = function (username, password) {
+      $scope.login = function (username, password) {
 
-    if (username == '') {
-      alert('user name filed should not keep blank');
-    } else if (password == '') {
-      alert('password filed should not keep blank');
-    } else {
-      var userData = {
-        'username': username,
-        'password': password
-      };
-      $http({
-        method: 'POST',
-        url: "api/v1/auth/",
-        data: userData,
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-      }).then(function successCallback(response) {
-        alert(response.data['msg']);
-        $location.path == '/dashboard';
-      }, function errorCallback(response) {
-        alert(response.data['msg']);
-      });
-    }
+        if (username == '') {
+          alert('user name filed should not keep blank');
+        } else if (password == '') {
+          alert('password filed should not keep blank Invalid credentials');
+        } else {
 
+          UserAuthFactory.login(username, password).success(function (data) {
 
+            AuthenticationFactory.isLogged = true;
+            AuthenticationFactory.user = data.user.username;
+            AuthenticationFactory.userRole = data.user.role;
 
-    var expired = new Date();
+            $window.sessionStorage.token = data.token;
+            $window.sessionStorage.user = data.user.username; // to fetch the user details on refresh
+            $window.sessionStorage.userRole = data.user.role; // to fetch the user details on refresh
 
-    expired.setTime(expired.getTime() + (60 * 1));
-    $cookieStore.put('user', username, { expires: expired });
+            $location.path("/");
+            var expired = new Date();
 
-    $location.path("/dashboard/home");
+            expired.setTime(expired.getTime() + (60 * 1));
+            $cookieStore.put('user', username, { expires: expired });
 
-    // $state.go('dashboard.home', {
-    //  id: '123456',
-    // });
+            $location.path("/dashboard/home");
 
-  }
+          }).error(function (status) {
+            alert('Oops something went wrong!');
+          });
+        }
+
+      }
 
 
-}]);
+
+      // $state.go('dashboard.home', {
+      //  id: '123456',
+      // });
+
+
+
+
+
+
+
+
+    }]);

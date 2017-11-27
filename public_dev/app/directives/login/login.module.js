@@ -15,7 +15,8 @@
                                 name: 'login',
                                 files: [
                                     'app/directives/login/login.directive.js',
-                                    'app/directives/login/login.controller.js'
+                                    'app/directives/login/login.controller.js',
+                                    'app/factory/auth.factory.js'
 
                                 ]
                             })

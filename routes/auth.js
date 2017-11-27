@@ -5,8 +5,8 @@ module.exports = {
 
         var username = req.body.username || '';
         var password = req.body.password || '';
-        var name = 'anurag';
-        user.findOne({'userName' : new RegExp(name, 'i')}, function(err, doc) {
+     
+        user.findOne({'userName' : new RegExp(username, 'i')}, function(err, doc) {
            console.log(doc);
           });
 

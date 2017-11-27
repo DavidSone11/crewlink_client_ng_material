@@ -34,7 +34,11 @@ var server = app.listen(port, function () {
   console.log('Express server listening on port ' + port);
 });
 
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true,
+}));
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade'); //extension of views
