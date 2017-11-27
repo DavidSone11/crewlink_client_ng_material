@@ -1,8 +1,8 @@
-module.exports = function(app, express) {
+module.exports = function(app, express,path) {
     
-    app.use(express.static(__dirname + '/public_dev'));
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade'); //extension of views
+   
+    
+    
 
     //development configuration
     if(process.env.NODE_ENV === 'development') {
