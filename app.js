@@ -46,11 +46,11 @@ app.use(express.static(path.join(__dirname, 'public_dev')))
 
 var development = process.env.NODE_ENV !== 'production';
 if (development) {
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  ///app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 }
 var production = process.env.NODE_ENV !== 'development';
 if (production) {
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  ////app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 }
 
 app.all('/*', function (req, res, next) {
