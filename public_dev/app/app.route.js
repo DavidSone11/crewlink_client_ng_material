@@ -36,6 +36,24 @@
         };
     });
 
+    app.run(['$rootScope', '$window', '$location', '$window', '$http', 'AuthenticationFactory', 'UserAuthFactory', function ($rootScope, $window, $location, $window, $http, AuthenticationFactory, UserAuthFactory) {
+        AuthenticationFactory.check();
+        $rootScope.$on("$routeChangeStart", function (event, nextRoute, currentRoute) {
+            if ((nextRoute.access && nextRoute.access.requiredLogin) && !AuthenticationFactory.isLogged) {
+                $location.path("/login");
+            } else {
+                if (!AuthenticationFactory.user) AuthenticationFactory.user = $window.sessionStorage.user;
+                if (!AuthenticationFactory.userRole) AuthenticationFactory.userRole = $window.sessionStorage.userRole;
+            }
+            $rootScope.$on('$routeChangeSuccess', function (event, nextRoute, currentRoute) {
+                $rootScope.showMenu = AuthenticationFactory.isLogged;
+                $rootScope.role = AuthenticationFactory.userRole;
+                if (AuthenticationFactory.isLogged == true && $location.path() == '/login') {
+                    $location.path('/');
+                }
+            });
+        });
+    }]);
     app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider', '$mdThemingProvider', '$mdIconProvider', 'cfpLoadingBarProvider',
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider, $mdThemingProvider, $mdIconProvider, cfpLoadingBarProvider) {
             cfpLoadingBarProvider.latencyThreshold = 5,

@@ -15,7 +15,7 @@ app.controller('loginController',
     'UserAuthFactory',
     'AuthenticationFactory', function ($compile, $scope, $location, $state, $http, $log, $q, $timeout, $window, $mdEditDialog, $cookies, $cookieStore, UserAuthFactory, AuthenticationFactory) {
 
-
+      //$('body').addClass('gray-bg');
       $scope.login = function (username, password) {
 
         if (username == '') {
