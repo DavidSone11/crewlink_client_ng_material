@@ -14,19 +14,23 @@ module.exports = {
             return;
         }
 
-        var dbUserObj = validate(username, password);
-
-        return res.json(dbUserObj);
-
+        var promise = validate(username, password);
+        promise.then(function (dbUserObj) {
+            return res.json(dbUserObj);
+        })
     },
 
 
 }
 function validate(username, password) {
-
-    user.find({ $and: [{"userName":username}, {"password": password}] }, function (err, doc) {
-        if (doc.length > 1) {
-            return doc;
-        }
+    return new Promise(function (resolve, reject) {
+        user.find({ $and: [{ "userName": username }, { "password": password }] }, function (err, results) {
+            if (err) {
+                reject({ error: err });
+            }
+            if (doc.length > 1) {
+                resolve(results);
+            }
+        });
     });
 }
