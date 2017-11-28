@@ -15,6 +15,7 @@
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
+    "bluebird": "^3.5.1",
     "consign": "^0.1.6",
     "express-session": "^1.15.6",
     "grunt": "^1.0.1",

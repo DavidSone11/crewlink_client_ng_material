@@ -1,13 +1,10 @@
-
+var Promise = require("bluebird");
 var user = require("../models/user.js");
 module.exports = {
-    login: function (req, res) {
 
+    login: function (req, res) {
         var username = req.body.username || '';
         var password = req.body.password || '';
-
-
-
         if (username == '' || password == '') {
             res.status(401);
             res.json({
@@ -27,7 +24,7 @@ module.exports = {
 }
 function validate(username, password) {
 
-    user.find({ $and: [{ "userName": username }, { "password": password }] }, function (err, doc) {
+    user.find({ $and: [{"userName":username}, {"password": password}] }, function (err, doc) {
         if (doc.length > 1) {
             return doc;
         }
