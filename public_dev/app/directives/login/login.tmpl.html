@@ -3,6 +3,7 @@
       <md-toolbar flex-gt-sm="100">
         <div class="md-toolbar-tools">
           <h2><span>Login Form</span></h2>
+          <md-progress-circular ng-disabled="!vm.activated" class="md-hue-2" md-diameter="20px"></md-progress-circular>
         </div>
       </md-toolbar>
       <md-card-content>
@@ -23,6 +24,7 @@
             </div>
           </md-input-container>
           <md-button ng-disabled="!LoginForm.$valid" ng-click="login(username,password)" class="md-raised md-primary"> Login</md-button>
+          
         </form>
       </md-card-content>
     </md-card>

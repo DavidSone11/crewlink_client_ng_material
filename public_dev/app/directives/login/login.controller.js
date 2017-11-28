@@ -18,29 +18,31 @@ app.controller('loginController',
       //$('body').addClass('gray-bg');
       $scope.login = function (username, password) {
 
+
+
         if (username == '') {
           alert('user name filed should not keep blank');
         } else if (password == '') {
           alert('password filed should not keep blank Invalid credentials');
         } else {
-
           UserAuthFactory.login(username, password).success(function (data) {
 
-            AuthenticationFactory.isLogged = true;
-            AuthenticationFactory.user = data.user.username;
-            AuthenticationFactory.userRole = data.user.role;
+            $timeout(function () {
+              AuthenticationFactory.isLogged = true;
+              AuthenticationFactory.user = data.user.username;
+              AuthenticationFactory.userRole = data.user.role;
+              $window.sessionStorage.token = data.token;
+              $window.sessionStorage.user = data.user.username;
+              $window.sessionStorage.userRole = data.user.role;
+              //$location.path("/");
+              ///var expired = new Date();
+              //expired.setTime(expired.getTime() + (60 * 1));
+              //$cookieStore.put('user', username, { expires: expired });
+              $location.path("/dashboard/home");
 
-            $window.sessionStorage.token = data.token;
-            $window.sessionStorage.user = data.user.username; // to fetch the user details on refresh
-            $window.sessionStorage.userRole = data.user.role; // to fetch the user details on refresh
+            }, 1000);
 
-            $location.path("/");
-            var expired = new Date();
 
-            expired.setTime(expired.getTime() + (60 * 1));
-            $cookieStore.put('user', username, { expires: expired });
-
-            $location.path("/dashboard/home");
 
           }).error(function (status) {
             alert('Oops something went wrong!');
