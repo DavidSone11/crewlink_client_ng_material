@@ -28,6 +28,7 @@
     "grunt-contrib-uglify": "^3.2.1",
     "jwt-simple": "^0.5.1",
     "lite-server": "^2.3.0",
+    "moment": "^2.19.2",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.5",
     "nodemon": "^1.12.1",
