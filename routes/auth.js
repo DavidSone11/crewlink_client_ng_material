@@ -5,10 +5,8 @@ module.exports = {
 
         var username = req.body.username || '';
         var password = req.body.password || '';
-     
-        user.findOne({'userName' : new RegExp(username, 'i')}, function(err, doc) {
-           console.log(doc);
-          });
+
+
 
         if (username == '' || password == '') {
             res.status(401);
@@ -19,8 +17,19 @@ module.exports = {
             return;
         }
 
+        var dbUserObj = validate(username, password);
 
-    }
+        return res.json(dbUserObj);
+
+    },
 
 
+}
+function validate(username, password) {
+
+    user.find({ $and: [{ "userName": username }, { "password": password }] }, function (err, doc) {
+        if (doc.length > 1) {
+            return doc;
+        }
+    });
 }
