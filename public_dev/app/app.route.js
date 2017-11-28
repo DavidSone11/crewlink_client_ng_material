@@ -16,55 +16,26 @@
         'md.data.table',
         'login',
         'smart-table',
-        'ngMaterialDatePicker',
-        'angular-growl'
+        'ngMaterialDatePicker'
+
     ]);
-    //function httpInterceptor($q){
-    //  console.log("DASDA");
-    //  return{
 
-    //}
-    //}
-
-
-    //httpInterceptor.$inject = ['$scope','$q'];
-    //app.directive("httpInterceptor",httpInterceptor);
-
-    app.factory('UtimfHttpIntercepter', UtimfHttpIntercepter)
-
-    UtimfHttpIntercepter.$inject = ['$q'];
-    function UtimfHttpIntercepter($q) {
-        var authFactory = {};
-
-        var _request = function (config) {
-            config.headers = config.headers || {}; // change/add hearders
-            config.data = config.data || {}; // change/add post data
-            config.params = config.params || {}; //change/add querystring params            
-
-            return config || $q.when(config);
-        }
-
-        var _requestError = function (rejection) {
-            // handle if there is a request error
-            return $q.reject(rejection);
-        }
-
-        var _response = function (response) {
-            // handle your response
-            return response || $q.when(response);
-        }
-
-        var _responseError = function (rejection) {
-            // handle if there is a request error
-            return $q.reject(rejection);
-        }
-
-        authFactory.request = _request;
-        authFactory.requestError = _requestError;
-        authFactory.response = _response;
-        authFactory.responseError = _responseError;
-        return authFactory;
-    }
+    app.factory('TokenInterceptor', function ($q, $window) {
+        return {
+            request: function (config) {
+                config.headers = config.headers || {};
+                if ($window.sessionStorage.token) {
+                    config.headers['X-Access-Token'] = $window.sessionStorage.token;
+                    config.headers['X-Key'] = $window.sessionStorage.user;
+                    config.headers['Content-Type'] = "application/json";
+                }
+                return config || $q.when(config);
+            },
+            response: function (response) {
+                return response || $q.when(response);
+            }
+        };
+    });
 
     app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider', '$mdThemingProvider', '$mdIconProvider', 'cfpLoadingBarProvider',
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider, $mdThemingProvider, $mdIconProvider, cfpLoadingBarProvider) {
@@ -84,11 +55,11 @@
             //$mdThemingProvider.theme('default')
             //.primaryPalette('green')
             // .accentPalette('orange');
-            //$httpProvider.defaults.withCredentials = true;
-            //$httpProvider.defaults.useXDomain = true;
-            //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-            ///$urlRouterProvider.otherwise('/home/dashboard');
-            $httpProvider.interceptors.push("UtimfHttpIntercepter");
+
+
+
+
+            $httpProvider.interceptors.push('TokenInterceptor');
 
 
             $stateProvider
@@ -114,7 +85,8 @@
                                         'app/directives/left-sidebar/left-sidebar.directive.js',
                                         'app/directives/sub-header/sub-header.directive.js',
                                         ////  'app/custom-directives/custom-header-title.directive.js'
-                                        'app/custom-directives/custom-data-table.directive.js'
+                                        'app/custom-directives/custom-data-table.directive.js',
+                                        'app/factory/auth.factory.js'
 
                                     ]
                                 })
@@ -246,11 +218,11 @@
         }]);
 
 
-    app.run(['$rootScope', '$state', '$stateParams', '$window', '$location', 'AuthenticationFactory',
-        function ($rootScope, $state, $stateParams) {
-            $rootScope.$state = $state;
-            $rootScope.$stateParams = $stateParams;
-        }])
+    app.run(function ($rootScope, $window, $location, AuthenticationFactory) {
+
+        AuthenticationFactory.check();
+
+    });
 
     app.directive('updateTitle', ['$rootScope', '$timeout', '$compile', function ($rootScope, $timeout, $compile) {
 

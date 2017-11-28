@@ -1,9 +1,10 @@
 (function () {
-    var app = angular.module('login', ['ngMaterial', 'ngCookies', 'ngMessages', 'oc.lazyLoad', 'ngAria', 'ngAnimate', 'ui.router', 'md.data.table']);
+    var app = angular.module('login', ['ngMaterial', 'ngCookies', 'ngMessages', 'oc.lazyLoad', 'ngAria', 'ngAnimate', 'ui.router']);
     app.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $httpProvider) {
-            $httpProvider.defaults.withCredentials = true;
-            $urlRouterProvider.otherwise({ redirectTo: '/login' });
+            //$httpProvider.defaults.withCredentials = true;
+           // $urlRouterProvider.otherwise({ redirectTo: '/login' });
+           $urlRouterProvider.otherwise('/login');
             $stateProvider.state('login', {
                 template: '<login></login>',
                 url: '/login',
