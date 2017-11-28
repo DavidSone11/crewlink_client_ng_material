@@ -1,9 +1,7 @@
 (function () {
     ' use strict';
-
-    console.clear();
-    var angular_injector = angular.injector(['ng']);
-    var https = angular_injector.get('$http');
+    ///var angular_injector = angular.injector(['ng']);
+    ///var https = angular_injector.get('$http');
     window.app_version = 2;
     var app = angular.module('emsApp', ['ngMaterial',
         'ngCookies',
@@ -16,10 +14,11 @@
         'md.data.table',
         'login',
         'smart-table',
-        'ngMaterialDatePicker'
+        'ngMaterialDatePicker',
+        'ngRoute'
 
     ]);
-
+    app.$inject = ['$rootScope', '$window', '$location', '$window', '$http', 'AuthenticationFactory', 'UserAuthFactory'];
     app.factory('TokenInterceptor', function ($q, $window) {
         return {
             request: function (config) {
@@ -217,12 +216,26 @@
 
         }]);
 
-
-    app.run(function ($rootScope, $window, $location, AuthenticationFactory) {
-
+/*
+    app.run(['$rootScope', '$window', '$location', '$window', '$http', 'AuthenticationFactory', 'UserAuthFactory', function ($rootScope, $window, $location, $window, $http, AuthenticationFactory, UserAuthFactory) {
         AuthenticationFactory.check();
-
-    });
+        $rootScope.$on("$routeChangeStart", function (event, nextRoute, currentRoute) {
+            if ((nextRoute.access && nextRoute.access.requiredLogin) && !AuthenticationFactory.isLogged) {
+                $location.path("/login");
+            } else {
+                if (!AuthenticationFactory.user) AuthenticationFactory.user = $window.sessionStorage.user;
+                if (!AuthenticationFactory.userRole) AuthenticationFactory.userRole = $window.sessionStorage.userRole;
+            }
+            $rootScope.$on('$routeChangeSuccess', function (event, nextRoute, currentRoute) {
+                $rootScope.showMenu = AuthenticationFactory.isLogged;
+                $rootScope.role = AuthenticationFactory.userRole;
+                if (AuthenticationFactory.isLogged == true && $location.path() == '/login') {
+                    $location.path('/');
+                }
+            });
+        });
+    }]);
+    */
 
     app.directive('updateTitle', ['$rootScope', '$timeout', '$compile', function ($rootScope, $timeout, $compile) {
 
