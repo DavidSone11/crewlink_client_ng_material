@@ -29,18 +29,19 @@ app.controller('loginController',
 
             $timeout(function () {
               AuthenticationFactory.isLogged = true;
-              AuthenticationFactory.user = data.user.username;
-              AuthenticationFactory.userRole = data.user.role;
+              AuthenticationFactory.user = data.user.userName;
+              AuthenticationFactory.userRole = data.user.roleCode;
               $window.sessionStorage.token = data.token;
-              $window.sessionStorage.user = data.user.username;
-              $window.sessionStorage.userRole = data.user.role;
+              $window.sessionStorage.user = data.user.userName;
+              $window.sessionStorage.userRole = data.user.roleCode;
+              $scope.isLoading = false;
               //$location.path("/");
               ///var expired = new Date();
               //expired.setTime(expired.getTime() + (60 * 1));
               //$cookieStore.put('user', username, { expires: expired });
               $location.path("/dashboard/home");
 
-            }, 1000);
+            }, 10000);
 
 
 
