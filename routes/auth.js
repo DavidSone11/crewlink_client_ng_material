@@ -27,7 +27,7 @@ module.exports = {
                 });
                 return;
             }
-            if (dbUserObj.length>0) {
+            if (dbUserObj.length > 0) {
                 console.log(dbUserObj);
                 var generatedToken = genToken();
                 dbUserObj = {
@@ -36,18 +36,22 @@ module.exports = {
                     username: dbUserObj[0]._doc.userName,
                     token: generatedToken
                 }
-               res.cookie("x-access-token", generatedToken,{ expires: new Date(generatedToken.expires)});
-               res.cookie('x-key',dbUserObj.username);
+                res.cookie("x-access-token", generatedToken, { expires: new Date(generatedToken.expires) });
+                res.cookie('x-key', dbUserObj.username);
                 return res.json(dbUserObj);
             }
         });
     },
 
-    logout:function(req,res){
-
-        console.log(""+req);
-        console.log(""+res);
-
+    logout: function (req, res) {
+        cookie = req.cookies;
+        for (var prop in cookie) {
+            if (!cookie.hasOwnProperty(prop)) {
+                continue;
+            }
+            res.cookie(prop, '', { expires: new Date(0) });
+        }
+        res.redirect('/');
     }
 
 
@@ -73,7 +77,7 @@ function genToken() {
 
     return {
         token: token,
-        expires: expires,   
+        expires: expires,
     };
 }
 

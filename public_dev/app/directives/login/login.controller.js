@@ -38,9 +38,10 @@ app.controller('loginController',
             $window.sessionStorage.email = succcessResponse.data.email;
 
             $state.go('dashboard.home');
-          }, function errorCallback(c) {
-            console.log(c);
+          }, function errorCallback(errorResponse) {
+           
             alert("username or password are invalid");
+            $scope.IsVisible = $scope.IsVisible ? true : false;
           });
           // }).error(function(errorResponse){
           //   console.log(errorResponse);
@@ -59,10 +60,7 @@ app.controller('loginController',
         ///$scope.isShowRegister = true;
 
       }
-      // $scope.isShowRegister = true;
-      // $scope.showRegisterForm = function(){
-      //   $scope.isShowRegister =  !$scope.isShowRegister;  
-      // };
+     
 
 
 
