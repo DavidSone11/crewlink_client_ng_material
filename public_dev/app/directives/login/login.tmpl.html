@@ -1,8 +1,8 @@
-<md-content  layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form">
+<md-content  layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form" ng-show="isShowRegister">
     <md-card flex="flex" flex-gt-sm="60" flex-gt-md="33">
       <md-toolbar flex-gt-sm="100">
         <div class="md-toolbar-tools">
-          <h2><span>Login Form</span></h2>
+          <h2><span>Login</span></h2>
           <md-progress-circular ng-disabled="isLoading" class="md-hue-2" md-diameter="20px"></md-progress-circular>
         </div>
       </md-toolbar>
@@ -23,10 +23,70 @@
               <div ng-message="md-maxlength" class="my-message">Too long.</div>
             </div>
           </md-input-container>
-          <md-button ng-disabled="!LoginForm.$valid" ng-click="login(username,password)" class="md-raised md-primary"> Login</md-button>
+          <md-button ng-disabled="!LoginForm.$valid" ng-click="login(username,password)" class="md-raised md-primary">
+              <i class="fa fa-user-plus" aria-hidden="true"></i> Login</md-button>
+          <md-button ng-click="showRegisterForm()" class="md-raised md-primary"> 
+              <i class="fa fa-user-plus" aria-hidden="true"></i>Register</md-button>
           
         </form>
       </md-card-content>
     </md-card>
   </md-content>
 
+
+
+  <md-content  layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form" ng-show="!isShowRegister">
+    <md-card flex="flex" flex-gt-sm="60" flex-gt-md="33">
+      <md-toolbar flex-gt-sm="100">
+        <div class="md-toolbar-tools">
+          <h2><span>Register</span></h2>
+          <!-- <md-progress-circular ng-disabled="isLoading" class="md-hue-2" md-diameter="20px"></md-progress-circular> -->
+        </div>
+      </md-toolbar>
+      <md-card-content>
+        <form name="registerForm">
+          <md-input-container class="md-block">
+            
+            <input type="text" name="username" ng-model="registerusername" placeholder="UserName" required=""/>
+            <div ng-messages="registerForm.email.$error" role="alert" multiple="">
+              <div ng-message="required" class="my-message">Please enter your email.</div>
+            </div>
+          </md-input-container>
+          
+          <md-input-container class="md-block">
+            <input type="password" name="password" ng-model="registerpassword" placeholder="FirstName" required="" md-maxlength="16"/>
+            <div ng-messages="registerForm.password.$error" role="alert" multiple="">
+              <div ng-message="required" class="my-message">Please enter your password.</div>
+              <div ng-message="md-maxlength" class="my-message">Too long.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <input type="password" name="password" ng-model="registerpassword" placeholder="LastName" required="" md-maxlength="16"/>
+            <div ng-messages="registerForm.password.$error" role="alert" multiple="">
+              <div ng-message="required" class="my-message">Please enter your password.</div>
+              <div ng-message="md-maxlength" class="my-message">Too long.</div>
+            </div>
+          </md-input-container>
+
+
+          <md-input-container class="md-block">
+            
+            <input type="password" name="password" ng-model="registerpassword" placeholder="email" required="" md-maxlength="16"/>
+            <div ng-messages="registerForm.password.$error" role="alert" multiple="">
+              <div ng-message="required" class="my-message">Please enter your password.</div>
+              <div ng-message="md-maxlength" class="my-message">Too long.</div>
+            </div>
+          </md-input-container>
+          
+          <md-button ng-disabled="!registerForm.$valid" ng-click="saveUser()" class="md-raised md-primary">
+              <md-icon class="fa fa-floppy-o" aria-hidden="true"></md-icon>Save</md-button>
+          <md-button ng-disabled="!registerForm.$valid" ng-click="resetUser()" class="md-raised md-primary">
+              <md-icon class="fa fa-window-restore" aria-hidden="true"></md-icon>Reset</md-button> 
+
+          
+          
+        </form>
+      </md-card-content>
+    </md-card>
+  </md-content>

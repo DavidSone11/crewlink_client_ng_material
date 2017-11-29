@@ -36,10 +36,11 @@ app.controller('loginController',
             $window.sessionStorage.user = succcessResponse.data.username;
             $window.sessionStorage.role = succcessResponse.data.role;
             $window.sessionStorage.email = succcessResponse.data.email;
-            
+
             $state.go('dashboard.home');
           }, function errorCallback(c) {
             console.log(c);
+            alert("username or password are invalid");
           });
           // }).error(function(errorResponse){
           //   console.log(errorResponse);
@@ -51,6 +52,17 @@ app.controller('loginController',
         }
 
       }
+
+      $scope.saveUser = function(){
+
+        console.log("DASDA");
+        $scope.isShowRegister = true;
+
+      }
+      $scope.isShowRegister = true;
+      $scope.showRegisterForm = function(){
+        $scope.isShowRegister =  !$scope.isShowRegister;  
+      };
 
 
 
