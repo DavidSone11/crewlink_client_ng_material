@@ -27,7 +27,7 @@ module.exports = {
                 });
                 return;
             }
-            if (dbUserObj) {
+            if (dbUserObj.length>0) {
                 console.log(dbUserObj);
                 var generatedToken = genToken();
                 dbUserObj = {
@@ -36,6 +36,8 @@ module.exports = {
                     username: dbUserObj[0]._doc.userName,
                     token: generatedToken
                 }
+               res.cookie("x-access-token", generatedToken,{ expires: new Date(generatedToken.expires)});
+               res.cookie('x-key',dbUserObj.username);
                 return res.json(dbUserObj);
             }
         });
