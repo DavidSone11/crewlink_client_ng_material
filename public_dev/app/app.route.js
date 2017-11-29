@@ -1,7 +1,7 @@
 (function () {
     ' use strict';
-    ///var angular_injector = angular.injector(['ng']);
-    ///var https = angular_injector.get('$http');
+    var angular_injector = angular.injector(['ng']);
+    var https = angular_injector.get('$http');
     window.app_version = 2;
     var app = angular.module('emsApp', ['ngMaterial',
         'ngCookies',

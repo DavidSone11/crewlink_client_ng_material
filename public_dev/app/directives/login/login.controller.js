@@ -30,12 +30,12 @@ app.controller('loginController',
             console.log(succcessResponse);
 
             AuthenticationFactory.isLogged = true;
-            AuthenticationFactory.user = res.user.username;
-            AuthenticationFactory.userRole = res.user.role;
-            $window.sessionStorage.token = res.token;
-            $window.sessionStorage.user = res.user.username; // to fetch the user details on refresh
-            $window.sessionStorage.userRole = res.user.role; // to fetch the user details on refresh
-            $state.go('home.dashboard');
+            AuthenticationFactory.user = succcessResponse.data.user.username;
+            AuthenticationFactory.userRole = succcessResponse.data.user.role;
+            $window.sessionStorage.token = succcessResponse.data.token;
+            $window.sessionStorage.user = succcessResponse.data.user.username; 
+            $window.sessionStorage.userRole = succcessResponse.data.user.role; 
+            $state.go('dashboard.home');
           }, function errorCallback(c) {
             console.log(c);
           });
