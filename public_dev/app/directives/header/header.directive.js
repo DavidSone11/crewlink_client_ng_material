@@ -3,7 +3,7 @@ app.directive('dashboardHeader', ['$compile', function($compile) {
     return {
         restrict: 'E',
         templateUrl: 'app/directives/header/header.tmpl.html',
-        controller: function($scope, $state, $http, $log, $q, $timeout, $window,$interval,$mdDialog) {
+        controller: function($scope, $state, $http, $log, $q, $timeout, $window,$interval,$mdDialog,UserAuthFactory, AuthenticationFactory) {
 
             
             var originatorEv;
@@ -27,6 +27,11 @@ app.directive('dashboardHeader', ['$compile', function($compile) {
                 originatorEv = ev;
                 $mdMenu.open(ev);
               };
+
+              $scope.logout = function(){
+                UserAuthFactory.logout().then(function successCallBack(succcessResponse) {
+                });
+              }
         
         }
     };
