@@ -56,13 +56,13 @@ app.controller('loginController',
       $scope.saveUser = function(){
 
         console.log("DASDA");
-        $scope.isShowRegister = true;
+        ///$scope.isShowRegister = true;
 
       }
-      $scope.isShowRegister = true;
-      $scope.showRegisterForm = function(){
-        $scope.isShowRegister =  !$scope.isShowRegister;  
-      };
+      // $scope.isShowRegister = true;
+      // $scope.showRegisterForm = function(){
+      //   $scope.isShowRegister =  !$scope.isShowRegister;  
+      // };
 
 
 
