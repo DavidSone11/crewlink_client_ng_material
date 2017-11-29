@@ -25,9 +25,9 @@ app.controller('loginController',
         } else if (password == '') {
           alert('password filed should not keep blank Invalid credentials');
         } else {
-          UserAuthFactory.login(username, password).success(function (data) {
+          UserAuthFactory.login(username, password).then(function (data) {
 
-            $timeout(function () {
+            
               AuthenticationFactory.isLogged = true;
               AuthenticationFactory.user = data.user.userName;
               AuthenticationFactory.userRole = data.user.roleCode;
@@ -35,14 +35,9 @@ app.controller('loginController',
               $window.sessionStorage.user = data.user.userName;
               $window.sessionStorage.userRole = data.user.roleCode;
               $scope.isLoading = false;
-              //$location.path("/");
-              ///var expired = new Date();
-              //expired.setTime(expired.getTime() + (60 * 1));
-              //$cookieStore.put('user', username, { expires: expired });
               $location.path("/dashboard/home");
 
-            }, 10000);
-
+         
 
 
           }).error(function (status) {

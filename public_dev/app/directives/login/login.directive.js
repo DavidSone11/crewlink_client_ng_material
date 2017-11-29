@@ -5,7 +5,6 @@ app.directive('login', ['$compile', function($compile) {
         templateUrl: 'app/directives/login/login.tmpl.html',
         controller: function($scope, $state, $http, $log, $q, $timeout, $window) {
 
-            console.log("DDADASDA");
         
         }
     };
