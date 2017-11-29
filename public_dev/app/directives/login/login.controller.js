@@ -18,7 +18,7 @@ app.controller('loginController',
       //$('body').addClass('gray-bg');
       $scope.login = function (username, password) {
 
-        $scope.isLoading = true;
+        $scope.isLoading = false;
 
         if (username == '') {
           alert('user name filed should not keep blank');

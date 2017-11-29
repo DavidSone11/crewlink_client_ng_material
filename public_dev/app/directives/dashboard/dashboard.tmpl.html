@@ -1,10 +1,72 @@
+<style>
+        .slide {
+                -webkit-transition: -webkit-transform .7s ease-in-out;
+                -moz-transition: -moz-transform .7s ease-in-out;
+                -o-transition: -o-transform .7s ease-in-out;
+                transition: transform .7s ease-in-out;
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+        }
+
+        .slide.ng-enter {
+                -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+        }
+
+        .slide.ng-enter.ng-enter-active,
+        .slide.ng-leave {
+                position: absolute;
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+        }
+
+        .slide.ng-leave.ng-leave-active {
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+        }
+
+        .fade.ng-enter,
+        .fade.ng-leave {
+                position: absolute;
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+        }
+
+        .fade.ng-enter {
+                -webkit-animation-name: fadeInDown;
+                animation-name: fadeInDown;
+        }
+
+        .fade.ng-leave {
+                -webkit-animation-name: fadeOutDown;
+                animation-name: fadeOutDown;
+        }
+
+        .bounce.ng-enter,
+        .bounce.ng-leave {
+                position: absolute;
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+        }
+
+        .bounce.ng-enter {
+                -webkit-animation-name: bounceInDown;
+                animation-name: bounceInDown;
+        }
+
+        .bounce.ng-leave {
+                -webkit-animation-name: bounceOutDown;
+                animation-name: bounceOutDown;
+        }
+</style>
+
 <div id="wrapper">
         <dashboard-header></dashboard-header>
         <sidebar></sidebar>
         <!-- <sub-header></sub-header> !-->
         <div class="page-wrapper" style="min-height: 700px;" id="page-wrapper">
 
-                <div ui-view></div>
+                <div ui-view class="bounce"></div>
 
         </div>
 
