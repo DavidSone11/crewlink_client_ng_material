@@ -25,24 +25,27 @@ app.controller('loginController',
         } else if (password == '') {
           alert('password filed should not keep blank Invalid credentials');
         } else {
-          UserAuthFactory.login(username, password).then(function (data) {
+          UserAuthFactory.login(username, password).then(function successCallBack(succcessResponse) {
 
-            
-              AuthenticationFactory.isLogged = true;
-              AuthenticationFactory.user = data.user.userName;
-              AuthenticationFactory.userRole = data.user.roleCode;
-              $window.sessionStorage.token = data.token;
-              $window.sessionStorage.user = data.user.userName;
-              $window.sessionStorage.userRole = data.user.roleCode;
-              $scope.isLoading = false;
-              $location.path("/dashboard/home");
+            console.log(succcessResponse);
 
-         
-
-
-          }).error(function (status) {
-            alert('Oops something went wrong!');
+            AuthenticationFactory.isLogged = true;
+            AuthenticationFactory.user = res.user.username;
+            AuthenticationFactory.userRole = res.user.role;
+            $window.sessionStorage.token = res.token;
+            $window.sessionStorage.user = res.user.username; // to fetch the user details on refresh
+            $window.sessionStorage.userRole = res.user.role; // to fetch the user details on refresh
+            $state.go('home.dashboard');
+          }, function errorCallback(c) {
+            console.log(c);
           });
+          // }).error(function(errorResponse){
+          //   console.log(errorResponse);
+          // })
+          // }), function errorCallBack(errorResponse) {
+          //   console.log(errorResponse);
+          // })
+
         }
 
       }
