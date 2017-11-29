@@ -27,14 +27,16 @@ app.controller('loginController',
         } else {
           UserAuthFactory.login(username, password).then(function successCallBack(succcessResponse) {
 
-            console.log(succcessResponse);
 
             AuthenticationFactory.isLogged = true;
-            AuthenticationFactory.user = succcessResponse.data.user.username;
-            AuthenticationFactory.userRole = succcessResponse.data.user.role;
-            $window.sessionStorage.token = succcessResponse.data.token;
-            $window.sessionStorage.user = succcessResponse.data.user.username; 
-            $window.sessionStorage.userRole = succcessResponse.data.user.role; 
+            AuthenticationFactory.user = succcessResponse.data.username;
+            AuthenticationFactory.role = succcessResponse.data.role;
+            AuthenticationFactory.email = succcessResponse.data.email;
+            $window.sessionStorage.token = succcessResponse.data.token.token;
+            $window.sessionStorage.user = succcessResponse.data.username;
+            $window.sessionStorage.role = succcessResponse.data.role;
+            $window.sessionStorage.email = succcessResponse.data.email;
+            
             $state.go('dashboard.home');
           }, function errorCallback(c) {
             console.log(c);

@@ -27,14 +27,20 @@ module.exports = {
                 });
                 return;
             }
-            // If authentication is success, we will generate a token
-            // and dispatch it to the client
             if (dbUserObj) {
-                return res.json(genToken(dbUserObj));
+                console.log(dbUserObj);
+                var generatedToken = genToken();
+                dbUserObj = {
+                    email: dbUserObj[0]._doc.email,
+                    role: dbUserObj[0]._doc.roleCode,
+                    username: dbUserObj[0]._doc.userName,
+                    token: generatedToken
+                }
+                return res.json(dbUserObj);
             }
         });
     },
-   
+
 
 }
 function validate(username, password) {
@@ -50,21 +56,20 @@ function validate(username, password) {
     });
 }
 
-function genToken(user) {
-  var expires = expiresIn(7); // 7 days
-  var token = jwt.encode({
-    exp: expires
-  }, require('../config/secret')());
- 
-  return {
-    token: token,
-    expires: expires,
-    user: user
-  };
+function genToken() {
+    var expires = expiresIn(7); // 7 days
+    var token = jwt.encode({
+        exp: expires
+    }, require('../config/secret')());
+
+    return {
+        token: token,
+        expires: expires,   
+    };
 }
- 
+
 function expiresIn(numDays) {
-  var dateObj = new Date();
-  return dateObj.setDate(dateObj.getDate() + numDays);
+    var dateObj = new Date();
+    return dateObj.setDate(dateObj.getDate() + numDays);
 }
 
