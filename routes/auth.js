@@ -41,6 +41,13 @@ module.exports = {
         });
     },
 
+    logout:function(req,res){
+
+        console.log(""+req);
+        console.log(""+res);
+
+    }
+
 
 }
 function validate(username, password) {
